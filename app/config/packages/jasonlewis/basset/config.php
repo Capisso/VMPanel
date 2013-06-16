@@ -28,25 +28,6 @@ return array(
 
     'collections' => array(
 
-        'ignite' => function($collection)
-        {
-            // Switch to the stylesheets directory and require the "less" and "sass" directories.
-            // These directories both have a filter applied to them so that the built
-            // collection will contain valid CSS.
-            $directory = $collection->directory('assets/libraries', function($collection) {
-                $collection->directory('bootstrap', function($collection) {
-
-                    $collection->directory('css', function($collection) {
-                        $collection->stylesheet('bootstrap.min.css');
-                    });
-                    $collection->directory('js', function($collection) {
-                        $collection->javascript('bootstrap.min.js');
-                    });
-
-                });
-                
-            });
-        }
 
     ),
 

@@ -2,98 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa7ba84e-406a-416e-a4c2-52b0135d0573" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/commands/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/packages/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/seeds/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/packages/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap/fonts/glyphiconshalflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap/fonts/glyphiconshalflings-regular.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap/fonts/glyphiconshalflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap/fonts/glyphiconshalflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/production.sqlite" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitattributes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/storage/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/storage/cache/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/storage/logs/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/storage/meta/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/storage/sessions/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/storage/views/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2012_12_06_225921_migration_cartalyst_sentry_install_users.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2012_12_06_225929_migration_cartalyst_sentry_install_groups.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2012_12_06_225945_migration_cartalyst_sentry_install_users_groups_pivot.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2012_12_06_225988_migration_cartalyst_sentry_install_throttle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/AccountController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/BaseController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/ExampleTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/HomeController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/Panel.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/TestCase.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/User.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/app.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/start/artisan.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/artisan" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/auth.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bootstrap/autoload.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/builds/ignite/assets/libraries/bootstrap/css/bootstrap-3b7538f05a12f501a381d31d15d4e499.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/builds/ignite/assets/libraries/bootstrap/js/bootstrap-3b7538f05a12f501a381d31d15d4e499.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/builds/ignite/assets/libraries/bootstrap/css/bootstrap.min-d17affaae6b04809f0e296b0940868d3.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/builds/ignite/assets/libraries/bootstrap/js/bootstrap.min-d17affaae6b04809f0e296b0940868d3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/bullet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bullets.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/cache.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/testing/cache.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/compile.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/packages/cartalyst/api/config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/packages/cartalyst/sentry/config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/packages/jasonlewis/basset/config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/database.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/filters.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/start/global.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/bootstrap/fonts/glyphiconshalflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/user/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/start/local.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/account/login.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/mail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/lang/en/pagination.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bootstrap/paths.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/queue.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/account/register.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/emails/auth/reminder.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/lang/en/reminders.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/robots.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/session.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/testing/session.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/simple.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bootstrap/start.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/user.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/lang/en/validation.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/webResources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/workbench.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/builds/ignite/assets/libraries/bootstrap/css/bootstrap-3b7538f05a12f501a381d31d15d4e499.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/builds/ignite/assets/libraries/bootstrap/css/bootstrap.min-d17affaae6b04809f0e296b0940868d3.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/builds/ignite/assets/libraries/bootstrap/js/bootstrap-3b7538f05a12f501a381d31d15d4e499.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/builds/ignite/assets/libraries/bootstrap/js/bootstrap.min-d17affaae6b04809f0e296b0940868d3.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/packages/jasonlewis/basset/config.php" afterPath="$PROJECT_DIR$/app/config/packages/jasonlewis/basset/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Panel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -108,6 +22,7 @@
     <file path="/dummy.xml" changelist="aa7ba84e-406a-416e-a4c2-52b0135d0573" time="1371421410250" ignored="false" />
     <file path="/.gitignore" changelist="aa7ba84e-406a-416e-a4c2-52b0135d0573" time="1371423361229" ignored="false" />
     <file path="/Dummy.txt" changelist="aa7ba84e-406a-416e-a4c2-52b0135d0573" time="1371423385300" ignored="false" />
+    <file path="/a.dummy" changelist="aa7ba84e-406a-416e-a4c2-52b0135d0573" time="1371423552979" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,24 +42,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="43" selection-start="718" selection-end="718" vertical-scroll-proportion="-7.304348">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccountController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/AccountController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="5" selection-start="2483" selection-end="2483" vertical-scroll-proportion="-21.304348">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="filters.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/filters.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -181,10 +78,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="22" selection-start="127" selection-end="127" vertical-scroll-proportion="0.09165303">
+            <state line="8" column="22" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/packages/jasonlewis/basset/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="5" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.40867388">
               <folding />
             </state>
           </provider>
@@ -208,15 +114,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simple.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/simple.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="27" selection-start="1464" selection-end="1464" vertical-scroll-proportion="-13.304348">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -235,8 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/config/local/database.php" />
-        <option value="$PROJECT_DIR$/bootstrap/start.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2012_12_06_225921_migration_cartalyst_sentry_install_users.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/simple.blade.php" />
         <option value="$PROJECT_DIR$/app/views/account/login.blade.php" />
@@ -251,6 +146,8 @@
         <option value="$PROJECT_DIR$/public/bullets.json" />
         <option value="$PROJECT_DIR$/app/views/user/index.blade.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/config/packages/jasonlewis/basset/config.php" />
+        <option value="$PROJECT_DIR$/app/storage/meta/collections.json" />
       </list>
     </option>
   </component>
@@ -472,6 +369,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Panel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Panel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Panel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Panel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="start" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -571,6 +508,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Panel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Panel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasonlewis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="basset" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -712,9 +679,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2597835" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2597835" sideWeight="0.6706068" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -723,7 +691,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -790,27 +757,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/local/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="35" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.4196503">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/account/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="5" selection-start="0" selection-end="877" vertical-scroll-proportion="-16.434782">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/account/register.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="19" selection-start="740" selection-end="740" vertical-scroll-proportion="-11.565217">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_ide_helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12074" column="28" selection-start="286543" selection-end="286543" vertical-scroll-proportion="0.3392256">
@@ -897,7 +843,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="22" selection-start="127" selection-end="127" vertical-scroll-proportion="0.09165303">
+        <state line="8" column="22" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/storage/meta/collections.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="236" column="24" selection-start="8170" selection-end="8170" vertical-scroll-proportion="0.47550675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/packages/jasonlewis/basset/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="5" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.40867388">
           <folding />
         </state>
       </provider>

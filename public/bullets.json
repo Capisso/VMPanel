@@ -1,0 +1,26 @@
+[
+    {
+        "title": "CPU Load",
+        "ranges": [80, 100, 80],
+        "measures": [50, 50],
+        "markers": [50]
+    },
+    {
+        "title": "RAM Usage",
+        "ranges": [1400, 2000, 1400],
+        "measures": [1024, 1024],
+        "markers": [1024]
+    },
+    {
+        "title": "Disk",
+        "ranges": [120, 120, 120],
+        "measures": [60, 60],
+        "markers": [60]
+    },
+    {
+        "title": "Bandwidth",
+        "ranges": [2000, 2000, 2000],
+        "measures": [1650, 1650],
+        "markers": [1650]
+    }
+]

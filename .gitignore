@@ -7,3 +7,4 @@ composer.lock
 _ide_helper.php
 /app/config/local
 /app/config/production
+.idea

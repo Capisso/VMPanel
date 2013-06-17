@@ -1,7 +1,13 @@
-@extends('layouts.admin')
+@extends('layouts/admin')
 
 @section('content')
 
-{{Form::model($user, array('action' => array('Admin\UserController@update', $user->id)))}}
+<h2>{{$user->username}}</h2>
+
+<hr>
+
+
+
+{{$user}}
 
 @stop

@@ -118,8 +118,7 @@ return array(
 		'Cartalyst\Api\ApiServiceProvider',
 		'Basset\BassetServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider',
-
+        'Cartalyst\Themes\ThemeServiceProvider',
 
     ),
 
@@ -192,6 +191,8 @@ return array(
 		'Request'  => 'Cartalyst\Api\Facades\Request',
 		'Response' => 'Cartalyst\Api\Facades\Response',
 		'Basset' => 'Basset\Facade',
+		'Theme' => 'Cartalyst\Themes\Facades\Theme',
+		'Asset' => 'Cartalyst\Themes\Facades\Asset',
 
 	),
 

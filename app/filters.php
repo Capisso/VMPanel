@@ -13,7 +13,9 @@
 
 App::before(function($request)
 {
-	//
+	// Find a place
+
+    
 });
 
 

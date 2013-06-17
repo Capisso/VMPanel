@@ -5,8 +5,9 @@ namespace Admin;
 use View;
 use Sentry;
 
-class UserController extends BaseController
+class UsersController extends BaseController
 {
+    protected $layout = 'layouts/admin';
 
     /**
      * Display a listing of the resource.
@@ -17,7 +18,7 @@ class UserController extends BaseController
     {
         $users = Sentry::getUserProvider()->findAll();
 
-        return View::make('admin.users.index', compact('users'));
+        return View::make('admin/users/index', compact('users'));
     }
 
     /**
@@ -27,7 +28,7 @@ class UserController extends BaseController
      */
     public function create()
     {
-        return View::make('admin.users.create');
+        return View::make('admin\userscreate');
     }
 
     /**
@@ -48,7 +49,9 @@ class UserController extends BaseController
      */
     public function show($id)
     {
-        return View::make('admin.users.show');
+        $user = Sentry::getUserProvider()->findById($id);
+
+        return View::make('admin.users.show', compact('user'));
     }
 
     /**

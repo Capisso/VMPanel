@@ -1,18 +1,34 @@
 {
     "require": {
         "laravel/framework": "4.0.*",
-        "jasonlewis/basset": "dev-master",
 
         "cartalyst/sentry": "2.0.*",
         "cartalyst/api": "1.0.*",
+        "cartalyst/themes": "2.0.*",
 
-        "barryvdh/laravel-ide-helper": "1.*",
-        "way/generators": "dev-master"
+        "cartalyst/assetic-filters": "1.0.*",
+        "jasonlewis/basset": "dev-master",
+        "lmammino/jsmin4assetic": "dev-master",
+        "natxet/CssMin": "dev-master",
+
+        "barryvdh/laravel-ide-helper": "1.*"
     },
     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/GetStorage/Cartalyst-API.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/GetStorage/Cartalyst-Themes.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/GetStorage/Cartalyst-Dependencies.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/GetStorage/Cartalyst-Assetic-Filters.git"
         }
     ],
     "autoload": {

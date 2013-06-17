@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts/admin')
 
 @section('content')
 
@@ -12,7 +12,7 @@
             <th>Servers</th>
             <th>Created On</th>
             <th>Last Sign On</th>
-            <th>Actions</th>
+            <th class="text-right">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -25,14 +25,14 @@
             <td>30</td>
             <td>{{$user->created_at}}</td>
             <td>{{$user->updated_at}}</td>
-            <td>{{HTML::linkAction('Admin\UserController@show', 'Manage', array($user->id), array('class' => 'btn btn-default btn-small'))}}</td>
+            <td>
+                {{HTML::linkAction('Admin\UsersController@show', 'Manage', array($user->id), array('class' => 'btn btn-default btn-small pull-right'))}}
+            </td>
         </tr>
         @endforeach
 
     </tbody>
 </table>
-
-
 
 
 @stop

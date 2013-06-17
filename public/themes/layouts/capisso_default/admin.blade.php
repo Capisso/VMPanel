@@ -1,3 +1,10 @@
+{{-- Styles --}}
+{{Asset::queue('style', 'bootstrap/css/bootstrap.min.css')}}
+
+{{-- Scripts --}}
+{{Asset::queue('jquery', 'js/jquery.js')}}
+{{Asset::queue('bootstrap', 'bootstrap/js/bootstrap.js', 'jquery')}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +20,11 @@
 
     </title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+
+    @foreach (Asset::getCompiledStyles() as $url)
+        {{ HTML::style($url) }}
+    @endforeach
 
 
 
@@ -52,11 +62,11 @@
         <a class="navbar-brand" href="#">Example Company</a>
         <div class="nav-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Servers</a></li>
-                <li class="active"><a href="#about">Users</a></li>
-                <li><a href="#contact">Machines</a></li>
-                <li><a href="#contact">IP Addresses</a></li>
-                <li><a href="#contact">Settings</a></li>
+                <li class="{{(Request::is('admin/servers*')? 'active' : '')}}"><a href="#">Servers</a></li>
+                <li class="{{(Request::is('admin/users*')? 'active' : '')}}">{{HTML::linkAction('Admin\UsersController@index', 'Users')}}</li>
+                <li class="{{(Request::is('admin/machines*')? 'active' : '')}}"><a href="#contact">Machines</a></li>
+                <li class="{{(Request::is('admin/ipaddresses*')? 'active' : '')}}"><a href="#contact">IP Addresses</a></li>
+                <li class="{{(Request::is('admin/settings*')? 'active' : '')}}"><a href="#contact">Settings</a></li>
             </ul>
 
             <ul class="nav navbar-nav pull-right">
@@ -82,14 +92,9 @@
 </div><!-- /container -->
 
 
-<!-- JS and analytics only. -->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/bootstrap/js/bootstrap.js"></script>
-
-<script src="/assets/js/application.js"></script>
+@foreach (Asset::getCompiledScripts() as $url)
+    {{ HTML::script($url) }}
+@endforeach
 
 
 </body>

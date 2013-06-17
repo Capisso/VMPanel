@@ -11,7 +11,13 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+        if($this->command->confirm('This will delete ALL of your data! Do you wish to coninue? [yes|no] ', false)) {
+
+            $this->call('UserTableSeeder');
+
+        }
+
+
 	}
 
 }

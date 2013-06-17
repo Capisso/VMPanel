@@ -31,7 +31,7 @@ Route::group(array('before' => 'auth'), function() {
 
     // Admin
     Route::group(array('prefix' => 'admin', 'before' => 'group:Admins'), function() {
-        Route::resource('users', 'Admin\UserController');
+        Route::resource('user', 'Admin\UserController');
     });
 
 

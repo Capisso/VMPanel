@@ -27,8 +27,7 @@ Route::group(array('before' => 'auth'), function() {
 
     // Admin
     Route::group(array('prefix' => 'admin', 'before' => 'group:Admins'), function() {
-        Route::get('', function() {
-        });
+        Route::resource('users', 'Admin\UserController');
     });
 
 
@@ -37,7 +36,6 @@ Route::group(array('before' => 'auth'), function() {
 
 
 Route::group(array('prefix' => 'development'), function() {
-    if(App::environment() != 'local') die('Development only');
 
     Route::get('createGroups', function() {
         Sentry::getGroupProvider()->create(array(
@@ -52,3 +50,5 @@ Route::group(array('prefix' => 'development'), function() {
     });
 
 });
+
+

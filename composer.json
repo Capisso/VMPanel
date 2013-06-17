@@ -2,9 +2,13 @@
     "require": {
         "laravel/framework": "4.0.*",
         "jasonlewis/basset": "dev-master",
+
         "cartalyst/sentry": "2.0.*",
         "cartalyst/api": "1.0.*",
-        "barryvdh/laravel-ide-helper": "1.*"
+        "cartalyst/data-grid": "1.0.*",
+
+        "barryvdh/laravel-ide-helper": "1.*",
+        "way/generators": "dev-master"
     },
     "repositories": [
         {

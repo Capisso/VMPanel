@@ -119,7 +119,6 @@ return array(
 		'Basset\BassetServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
-        'Cartalyst\DataGrid\DataGridServiceProvider',
 
 
     ),
@@ -193,7 +192,6 @@ return array(
 		'Request'  => 'Cartalyst\Api\Facades\Request',
 		'Response' => 'Cartalyst\Api\Facades\Response',
 		'Basset' => 'Basset\Facade',
-        'DataGrid' => 'Cartalyst\DataGrid\Facades\DataGrid',
 
 	),
 

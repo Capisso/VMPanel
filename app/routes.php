@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/', function() {
+       return '<h1>Hello world</h1>';
+    });
+
 Route::controller('account', 'AccountController');
 
 // Container for all auth required routes

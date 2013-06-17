@@ -9,3 +9,13 @@ before_script:
   - php composer.phar install --prefer-source --no-interaction --dev
 
 script: phpunit
+
+notifications:
+  irc: 
+    channels:
+      - "irc.esper.net#capisso"
+    on_success: change
+    on_failure: always
+    template:
+      - "%{repository} (%{branch}:%{commit} by %{author}): %{message} (%{build_url})"
+    skip_join: true

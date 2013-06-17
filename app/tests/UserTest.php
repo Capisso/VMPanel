@@ -16,7 +16,7 @@ class UserTest extends TestCase {
     public function testAdminUser()
     {
         $user = Sentry::getUserProvider()->findByLogin('admin@local.localhost');
-        $this->db($user);
+        $this->be($user);
 
         $crawler = $this->client->request('GET', '/admin');
 

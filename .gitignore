@@ -3,8 +3,10 @@
 composer.phar
 composer.lock
 .DS_Store
-
+.idea
 _ide_helper.php
+
 /app/config/local
 /app/config/production
-.idea
+/public/assets/cache
+

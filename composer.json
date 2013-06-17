@@ -5,15 +5,14 @@
 
         "cartalyst/sentry": "2.0.*",
         "cartalyst/api": "1.0.*",
-        "cartalyst/data-grid": "1.0.*",
 
         "barryvdh/laravel-ide-helper": "1.*",
         "way/generators": "dev-master"
     },
     "repositories": [
         {
-            "type": "composer",
-            "url": "http://packages.cartalyst.com"
+            "type": "vcs",
+            "url": "https://github.com/GetStorage/Cartalyst-API.git"
         }
     ],
     "autoload": {

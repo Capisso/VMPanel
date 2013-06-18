@@ -11,7 +11,8 @@
         "lmammino/jsmin4assetic": "dev-master",
         "natxet/CssMin": "dev-master",
 
-        "barryvdh/laravel-ide-helper": "1.*"
+        "barryvdh/laravel-ide-helper": "1.*",
+        "phpids/phpids": "dev-master"
     },
     "repositories": [
         {

@@ -13,8 +13,33 @@
 
 App::before(function($request)
 {
-	// Find a place
+    //dd($request);
 
+    $fullRequest = array(
+        'REQUEST' => $_REQUEST,
+        'GET' => $_GET,
+        'POST' => $_POST,
+        'COOKIE' => $_COOKIE
+    );
+
+    $init = IDS\Init::init(app_path().'/config/ids/config.ini');
+    $ids = new IDS\Monitor($init);
+    $result = $ids->run($fullRequest);
+
+    if(!$result->isEmpty()) {
+
+        foreach($result as $event) {
+            IDSLog::create(array(
+                'name' => $event->getName(),
+                'value' => $event->getValue(),
+                'filters' => json_encode($event->getFilters()),
+                'impact' => $event->getImpact(),
+                'tags' => json_encode($event->getTags())
+            ));
+        }
+
+
+    }
     
 });
 

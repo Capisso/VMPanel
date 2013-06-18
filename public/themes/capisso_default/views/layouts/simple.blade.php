@@ -1,3 +1,11 @@
+{{-- Styles --}}
+{{Asset::queue('bootstrap', 'bootstrap/css/bootstrap.css')}}
+{{Asset::queue('main', 'css/main.css')}}
+
+{{-- Scripts --}}
+{{Asset::queue('jquery', 'js/jquery.js')}}
+{{Asset::queue('bootstrap', 'bootstrap/js/bootstrap.js', 'jquery')}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +16,12 @@
     <meta name="author" content="">
 
     <title>
-
         @yield('title')
-
     </title>
+
+    @foreach (Asset::getCompiledStyles() as $url)
+    {{ HTML::style($url) }}
+    @endforeach
 
     <!-- Bootstrap core CSS -->
     <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -86,15 +96,9 @@
 </div><!-- /container -->
 
 
-<!-- JS and analytics only. -->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/bootstrap/js/bootstrap.js"></script>
-
-<script src="/assets/js/application.js"></script>
-
+@foreach (Asset::getCompiledScripts() as $url)
+{{ HTML::script($url) }}
+@endforeach
 
 </body>
 </html>

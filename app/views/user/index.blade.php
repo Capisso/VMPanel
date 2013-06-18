@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts/user')
 
 @section('content')
 
@@ -49,7 +49,7 @@
 
 
             <script src="http://d3js.org/d3.v3.min.js"></script>
-            <script src="/assets/js/bullet.js"></script>
+            <script src="/themes/capisso_default/assets/js/bullet.js"></script>
             <script>
 
                 var margin = {top: 5, right: 40, bottom: 20, left: 120},

@@ -1,5 +1,6 @@
 {{-- Styles --}}
-{{Asset::queue('style', 'bootstrap/css/bootstrap.min.css')}}
+{{Asset::queue('bootstrap', 'bootstrap/css/bootstrap.css')}}
+{{Asset::queue('main', 'css/main.css')}}
 
 {{-- Scripts --}}
 {{Asset::queue('jquery', 'js/jquery.js')}}
@@ -15,15 +16,11 @@
     <meta name="author" content="">
 
     <title>
-
-        Starter template &middot; Bootstrap
-
+        @yield('title')
     </title>
 
-
-
     @foreach (Asset::getCompiledStyles() as $url)
-        {{ HTML::style($url) }}
+    {{ HTML::style($url) }}
     @endforeach
 
 
@@ -49,6 +46,10 @@
     body {
         padding-top: 60px;
     }
+    .starter-template {
+        padding: 40px 15px;
+        text-align: center;
+    }
 </style>
 
 
@@ -62,11 +63,9 @@
         <a class="navbar-brand" href="#">Example Company</a>
         <div class="nav-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="{{(Request::is('admin/servers*')? 'active' : '')}}"><a href="#">Servers</a></li>
-                <li class="{{(Request::is('admin/users*')? 'active' : '')}}">{{HTML::linkAction('Admin\UsersController@index', 'Users')}}</li>
-                <li class="{{(Request::is('admin/machines*')? 'active' : '')}}"><a href="#contact">Machines</a></li>
-                <li class="{{(Request::is('admin/ipaddresses*')? 'active' : '')}}"><a href="#contact">IP Addresses</a></li>
-                <li class="{{(Request::is('admin/settings*')? 'active' : '')}}"><a href="#contact">Settings</a></li>
+                <li class="active"><a href="#">Servers</a></li>
+                <li><a href="#about">Snapshots</a></li>
+                <li><a href="#contact">API</a></li>
             </ul>
 
             <ul class="nav navbar-nav pull-right">
@@ -87,15 +86,32 @@
 
 <div class="container">
 
-    @yield('content')
+    <div class="row">
+        <div class="col col-lg-3">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="nav-header">Your Servers</li>
+                <li class="active"><a href="" class="text-success">example.com</a></li>
+                <li><a href="" class="text-success">{{Str::random(5)}}.example.com</a></li>
+                <li><a href="" class="text-success">{{Str::random(5)}}.example.com</a></li>
+                <li><a href="" class="text-warning">{{Str::random(5)}}.example.com</a></li>
+                <li><a href="" class="text-danger">{{Str::random(5)}}.example.com</a></li>
+                <li><a href="" class="text-muted">{{Str::random(5)}}.example.com</a></li>
+
+                <li class="nav-header">Quick Links</li>
+
+            </ul>
+        </div>
+
+        <div class="col col-lg-9">
+            @yield('content')
+        </div>
+    </div>
 
 </div><!-- /container -->
 
-
 @foreach (Asset::getCompiledScripts() as $url)
-    {{ HTML::script($url) }}
+{{ HTML::script($url) }}
 @endforeach
-
 
 </body>
 </html>

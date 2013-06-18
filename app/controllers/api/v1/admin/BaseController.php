@@ -1,20 +1,20 @@
 <?php
 
 namespace ApiVersionOne\Admin;
+use Input;
+use Response;
+use Sentry;
 
 class BaseController extends \Controller {
 
-	/**
-	 * Setup the layout used by the controller.
-	 *
-	 * @return void
-	 */
-	protected function setupLayout()
-	{
-		if ( ! is_null($this->layout))
-		{
-			$this->layout = View::make($this->layout);
-		}
-	}
+    public function __construct() {
+        $requestKey = Input::get('apikey');
+
+        if(empty($requestKey)) {
+            return Response::api('Invalid authorization token.', 401);
+        }
+
+
+    }
 
 }

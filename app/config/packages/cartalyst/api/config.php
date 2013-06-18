@@ -85,6 +85,6 @@ return array(
 	|
 	*/
 
-	'json_manipulation' => 0,
+	'json_manipulation' => JSON_PRETTY_PRINT,
 
 );

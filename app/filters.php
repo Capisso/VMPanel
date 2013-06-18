@@ -46,7 +46,7 @@ Route::filter('group', function($route, $request, $group) {
 
 Route::filter('auth', function()
 {
-	if (!Sentry::getUser()) return Redirect::guest('login');
+	if (!Sentry::getUser()) return Redirect::guest('account/login');
 });
 
 

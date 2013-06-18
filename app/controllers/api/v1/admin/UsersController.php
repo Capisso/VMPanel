@@ -4,6 +4,8 @@ namespace ApiVersionOne\Admin;
 
 use Sentry;
 use Response;
+use Input;
+use Validator;
 
 class UsersController extends BaseController {
 
@@ -25,7 +27,40 @@ class UsersController extends BaseController {
      * @return Response
      */
     public function store() {
-        // @todo
+        $input = Input::all();
+
+        $rules = array(
+            'username'         => 'required|min:2|max:32|unique:users',
+            'email'            => 'required|email|unique:users',
+            'password'         => 'required|min:6',
+        );
+
+        $validator = Validator::make($input, $rules);
+
+        if ($validator->fails()) {
+            return Response::api($validator, 400);
+        }
+
+        try {
+
+            $user = Sentry::register(
+                array(
+                    'username'   => mb_strtolower($input['username']),
+                    'email'      => $input['email'],
+                    'password'   => $input['password']
+                )
+            );
+            $userGroup = Sentry::getGroupProvider()->findById(1);
+
+            $user->isActivated(true);
+            $user->addGroup($userGroup);
+
+            return Response::api($user);
+
+        } catch (Sentry\Users\UserExistsException $e) {
+            return Response::api('User with this login already exists.', 409);
+        }
+
     }
 
 

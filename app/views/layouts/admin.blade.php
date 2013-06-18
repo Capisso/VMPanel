@@ -50,7 +50,7 @@
             <ul class="nav navbar-nav">
                 <li class="{{(Request::is('admin/servers*')? 'active' : '')}}"><a href="#">Servers</a></li>
                 <li class="{{(Request::is('admin/users*')? 'active' : '')}}">{{HTML::linkAction('Admin\UsersController@index', 'Users')}}</li>
-                <li class="{{(Request::is('admin/machines*')? 'active' : '')}}"><a href="#contact">Machines</a></li>
+                <li class="{{(Request::is('admin/nodes*')? 'active' : '')}}">{{HTML::linkAction('Admin\NodesController@index', 'Nodes')}}</li>
                 <li class="{{(Request::is('admin/ipaddresses*')? 'active' : '')}}"><a href="#contact">IP Addresses</a></li>
                 <li class="{{(Request::is('admin/settings*')? 'active' : '')}}"><a href="#contact">Settings</a></li>
             </ul>

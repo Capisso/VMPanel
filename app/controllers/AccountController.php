@@ -6,7 +6,7 @@ class AccountController extends BaseController
 
     public function __construct()
     {
-        $this->beforeFilter('guest', ['only' => ['getLogin', 'postLogin', 'getRegister', 'postRegister']]);
+        $this->beforeFilter('guest', ['only' => ['getLogin', 'postLogin']]);
     }
 
     public function getLogin()
@@ -69,53 +69,6 @@ class AccountController extends BaseController
         catch (Cartalyst\Sentry\Throttling\UserBannedException $e) {
             return Redirect::to('account/login')->withErrors(['User is banned.']);
         }
-    }
-
-    public function getRegister()
-    {
-        return View::make('account.register');
-    }
-
-    /**
-     * Generally this wont be available, it's for development purposes.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function postRegister()
-    {
-        $input = Input::all();
-
-        $rules = array(
-            'username'         => 'required|min:2|max:32|unique:users',
-            'email'            => 'required|email|unique:users',
-            'password'         => 'required|min:6',
-        );
-
-        $validator = Validator::make($input, $rules);
-
-        if ($validator->fails()) {
-            return Redirect::to('account/register')->withErrors($validator);
-        }
-
-        try {
-            $user = Sentry::register(
-                array(
-                    'username'   => mb_strtolower($input['username']),
-                    'email'      => $input['email'],
-                    'password'   => $input['password']
-                )
-            );
-            $userGroup = Sentry::getGroupProvider()->findById(1);
-
-            $user->isActivated(true);
-            $user->addGroup($userGroup);
-
-            return Redirect::to('account/login');
-
-        } catch (Cartalyst\Sentry\Users\UserExistsException $e) {
-            return Redirect::to('account/register')->withErrors(['User with this login already exists.']);
-        }
-
     }
 
     public function getForgot()

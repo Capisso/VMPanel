@@ -13,7 +13,7 @@
 
 {{ Form::open(array('url' => 'account/login', 'class' => 'form-signin')) }}
 <h2 class="form-signin-heading">Please sign in</h2>
-<input type="text" class="input-block-level" name="email" placeholder="Email address" autofocus>
+<input type="text" class="input-block-level" name="username" placeholder="Username" autofocus>
 <input type="password" class="input-block-level" name="password" placeholder="Password">
 <label class="checkbox">
     <input type="checkbox" name="remember" value="remember-me"> Remember me

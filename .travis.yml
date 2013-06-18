@@ -1,5 +1,5 @@
 language: php
-services: sqlite3
+services: sqlite
 
 php:
   - 5.4

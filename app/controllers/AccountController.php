@@ -19,7 +19,7 @@ class AccountController extends BaseController
         $input = Input::all();
 
         $rules = array(
-            'email'    => 'required|email',
+            'username'    => 'required',
             'password' => 'required'
         );
 
@@ -32,7 +32,7 @@ class AccountController extends BaseController
         try {
             // Set login credentials
             $credentials = array(
-                'email'    => $input['email'],
+                'username'    => $input['username'],
                 'password' => $input['password'],
             );
 
@@ -108,7 +108,7 @@ class AccountController extends BaseController
             $userGroup = Sentry::getGroupProvider()->findById(1);
 
             $user->isActivated(true);
-            $user->addGroup($userGrup);
+            $user->addGroup($userGroup);
 
             return Redirect::to('account/login');
 

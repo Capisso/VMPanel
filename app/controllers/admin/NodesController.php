@@ -12,7 +12,7 @@ class NodesController extends BaseController {
      * @return Response
      */
     public function index() {
-        return View::make('admin.nodes.index');
+        return View::make('admin/nodes/index');
     }
 
     /**

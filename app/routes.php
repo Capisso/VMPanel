@@ -35,7 +35,12 @@ Route::group(array('before' => 'auth'), function () {
         Route::resource('users', 'Admin\UsersController');
         Route::resource('nodes', 'Admin\NodesController');
 
-        Route::controller('security', 'Admin\SecurityController');
+        Route::group(array('prefix' => 'security'), function() {
+            Route::get('/', 'Admin\Security\HomeController@getIndex');
+            Route::resource('intrusion', 'Admin\Security\IntrusionController');
+        });
+
+
     });
 });
 

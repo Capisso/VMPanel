@@ -11,7 +11,7 @@ class CreateIdsLog extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('ids_log', function($table) {
+		Schema::create('ids_logs', function($table) {
             $table->increments('id');
 
             $table->string('name');
@@ -31,7 +31,7 @@ class CreateIdsLog extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('ids_log');
+		Schema::drop('ids_logs');
 	}
 
 }

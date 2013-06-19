@@ -11,7 +11,7 @@ class AccountController extends BaseController
 
     public function getLogin()
     {
-        return View::make('account.login');
+        return View::make('account/login');
     }
 
     public function postLogin()
@@ -73,7 +73,7 @@ class AccountController extends BaseController
 
     public function getForgot()
     {
-        return View::make('account.forgot');
+        return View::make('account/forgot');
     }
 
     public function postForgot()
@@ -106,12 +106,12 @@ class AccountController extends BaseController
 
     public function getResetting()
     {
-        return View::make('account.resetting');
+        return View::make('account/resetting');
     }
 
     public function getReset($email, $code)
     {
-        return View::make('account.reset', array('email' => $email, 'code' => $code));
+        return View::make('account/reset', array('email' => $email, 'code' => $code));
     }
 
     public function postReset()

@@ -2,8 +2,8 @@
 
 class IDSLog extends Eloquent {
 
-    protected $table = 'ids_log';
+    protected $table = 'ids_logs';
 
-    protected $fillable = array('name', 'value', 'filters', 'impact', 'tags');
+    protected $fillable = array('name', 'value', 'filters', 'impact', 'tags', 'page', 'ip', 'request');
 
 }

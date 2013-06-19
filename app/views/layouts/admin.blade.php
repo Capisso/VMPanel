@@ -52,7 +52,7 @@
                 <li class="{{(Request::is('admin/users*')? 'active' : '')}}">{{HTML::linkAction('Admin\UsersController@index', 'Users')}}</li>
                 <li class="{{(Request::is('admin/nodes*')? 'active' : '')}}">{{HTML::linkAction('Admin\NodesController@index', 'Nodes')}}</li>
                 <li class="{{(Request::is('admin/ipaddresses*')? 'active' : '')}}"><a href="#contact">IP Addresses</a></li>
-                <li class="{{(Request::is('admin/security*')? 'active' : '')}}">{{HTML::linkAction('Admin\SecurityController@getIndex', 'Security')}}</li>
+                <li class="{{(Request::is('admin/security*')? 'active' : '')}}">{{HTML::linkAction('Admin\Security\HomeController@getIndex', 'Security')}}</li>
                 <li class="{{(Request::is('admin/settings*')? 'active' : '')}}"><a href="#contact">Settings</a></li>
             </ul>
 

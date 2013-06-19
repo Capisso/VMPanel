@@ -29,13 +29,7 @@ App::before(function($request)
     if(!$result->isEmpty()) {
 
         foreach($result as $event) {
-            IDSLog::create(array(
-                'name' => $event->getName(),
-                'value' => $event->getValue(),
-                'filters' => json_encode($event->getFilters()),
-                'impact' => $event->getImpact(),
-                'tags' => json_encode($event->getTags())
-            ));
+            Event::fire('security.intrusion', array($event));
         }
 
 

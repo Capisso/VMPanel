@@ -77,7 +77,7 @@ class UsersController extends BaseController {
 
         $user = API::get('admin/users/'. $sentryUser->username);
 
-        return View::make('admin.users.show', compact('user'));
+        return View::make('admin/users/show', compact('user'));
     }
 
     /**
@@ -97,7 +97,7 @@ class UsersController extends BaseController {
         $user = API::get('admin/users/'. $sentryUser->username);
 
 
-        return View::make('admin.users.edit', compact('user'));
+        return View::make('admin/users/edit', compact('user'));
     }
 
     /**

@@ -7,7 +7,7 @@ use Response;
 use Input;
 use Validator;
 
-class UsersController extends BaseController {
+class UserController extends BaseController {
 
 
     /**

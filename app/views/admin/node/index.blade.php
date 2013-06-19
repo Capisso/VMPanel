@@ -10,7 +10,7 @@
             <div class="caption">
                 <h3>dal{{$i}}.provider.com</h3>
                 <p>Some graph/chart</p>
-                <p>{{HTML::linkAction('Admin\NodesController@show', 'Manage', array($i), array('class' => 'btn btn-primary'))}}</p>
+                <p>{{HTML::linkAction('Admin\NodeController@show', 'Manage', array($i), array('class' => 'btn btn-primary'))}}</p>
             </div>
         </div>
     </div>

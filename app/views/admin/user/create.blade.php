@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col col-lg-6 col-push-3">
 
-        {{Form::open(array('action' => 'Admin\UsersController@store', 'class' => 'form-horizontal'))}}
+        {{Form::open(array('action' => 'Admin\UserController@store', 'class' => 'form-horizontal'))}}
             <div class="row">
                 {{Form::label('username','Username', array('class' => 'col col-lg-2 control-label'))}}
                 <div class="col col-lg-10">

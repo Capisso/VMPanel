@@ -3,8 +3,13 @@
 namespace Admin;
 
 use View;
+use IPAddress;
+use Validator;
+use Input;
+use Redirect;
+use Str;
 
-class NodesController extends BaseController {
+class AddressController extends BaseController {
 
     /**
      * Display a list of nodes
@@ -12,7 +17,9 @@ class NodesController extends BaseController {
      * @return Response
      */
     public function index() {
-        return View::make('admin/nodes/index');
+        $nodes = IPAddress::all();
+
+        return View::make('admin/address/index');
     }
 
     /**
@@ -21,6 +28,7 @@ class NodesController extends BaseController {
      * @return Response
      */
     public function create() {
+        return View::make('admin/address/create');
     }
 
     /**
@@ -40,7 +48,9 @@ class NodesController extends BaseController {
      * @return Response
      */
     public function show($id) {
+        $region = IPAddress::find($id);
 
+        return View::make('admin/address/show', compact('region'));
     }
 
     /**

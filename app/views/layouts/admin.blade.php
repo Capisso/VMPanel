@@ -49,9 +49,10 @@
         <div class="nav-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="{{(Request::is('admin/servers*')? 'active' : '')}}"><a href="#">Servers</a></li>
-                <li class="{{(Request::is('admin/users*')? 'active' : '')}}">{{HTML::linkAction('Admin\UsersController@index', 'Users')}}</li>
-                <li class="{{(Request::is('admin/nodes*')? 'active' : '')}}">{{HTML::linkAction('Admin\NodesController@index', 'Nodes')}}</li>
-                <li class="{{(Request::is('admin/ipaddresses*')? 'active' : '')}}"><a href="#contact">IP Addresses</a></li>
+                <li class="{{(Request::is('admin/users*')? 'active' : '')}}">{{HTML::linkAction('Admin\UserController@index', 'Users')}}</li>
+                <li class="{{(Request::is('admin/nodes*')? 'active' : '')}}">{{HTML::linkAction('Admin\NodeController@index', 'Nodes')}}</li>
+                <li class="{{(Request::is('admin/regions*')? 'active' : '')}}">{{HTML::linkAction('Admin\RegionController@index', 'Regions')}}</li>
+                <li class="{{(Request::is('admin/addresses*')? 'active' : '')}}">{{HTML::linkAction('Admin\AddressController@index', 'IP Addresses')}}</li>
                 <li class="{{(Request::is('admin/security*')? 'active' : '')}}">{{HTML::linkAction('Admin\Security\HomeController@getIndex', 'Security')}}</li>
                 <li class="{{(Request::is('admin/settings*')? 'active' : '')}}"><a href="#contact">Settings</a></li>
             </ul>

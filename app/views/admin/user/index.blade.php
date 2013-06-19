@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <table class="table">
     <thead>
         <tr>
@@ -26,7 +25,7 @@
             <td>{{$user->created_at}}</td>
             <td>{{$user->updated_at}}</td>
             <td>
-                {{HTML::linkAction('Admin\UsersController@show', 'Manage', array($user->id), array('class' => 'btn btn-default btn-small pull-right'))}}
+                {{HTML::linkAction('Admin\UserController@show', 'Manage', array($user->id), array('class' => 'btn btn-default btn-small pull-right'))}}
             </td>
         </tr>
         @endforeach

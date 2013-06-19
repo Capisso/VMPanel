@@ -8,7 +8,7 @@ use API;
 use Redirect;
 use App;
 
-class UsersController extends BaseController {
+class UserController extends BaseController {
 
     /**
      * Display a list of users
@@ -18,7 +18,7 @@ class UsersController extends BaseController {
     public function index() {
         $users = API::get('admin/users');
 
-        return View::make('admin/users/index', array('users' => $users, 'title' => 'All Users'));
+        return View::make('admin/user/index', array('users' => $users, 'title' => 'All Users'));
     }
 
     /**
@@ -27,7 +27,7 @@ class UsersController extends BaseController {
      * @return Response
      */
     public function create() {
-        return View::make('admin/users/create', array('title' => 'Create User'));
+        return View::make('admin/user/create', array('title' => 'Create User'));
     }
 
     /**
@@ -42,7 +42,7 @@ class UsersController extends BaseController {
 
             $user = API::post('admin/users', \Input::all());
 
-            return Redirect::to('admin/users/'. $user->id);
+            return Redirect::action('Admin\UserController@show', array($user->id));
 
         } catch (Cartalyst\Api\Http\ApiHttpException $e) {
 
@@ -52,7 +52,7 @@ class UsersController extends BaseController {
 
             } elseif ($e->isClientError()) {
 
-                return Redirect::to('admin/users/create')
+                return Redirect::action('Admin\UserController@create')
                     ->withErrors($e->getErrors())
                     ->with('message', $e->getMessage());
             }
@@ -77,7 +77,7 @@ class UsersController extends BaseController {
 
         $user = API::get('admin/users/'. $sentryUser->username);
 
-        return View::make('admin/users/show', compact('user'));
+        return View::make('admin/user/show', compact('user'));
     }
 
     /**
@@ -97,7 +97,7 @@ class UsersController extends BaseController {
         $user = API::get('admin/users/'. $sentryUser->username);
 
 
-        return View::make('admin/users/edit', compact('user'));
+        return View::make('admin/user/edit', compact('user'));
     }
 
     /**

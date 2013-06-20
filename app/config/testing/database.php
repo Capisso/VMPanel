@@ -35,8 +35,8 @@ return array(
 
         'sqlite' => array(
             'driver'   => 'sqlite',
-            'database' => __DIR__.'/../database/testing.sqlite',
-            'prefix'   => '',
+            'database' => app_path().'/database/testing.sqlite',
+            'prefix'   => 'testing-',
         ),
 
 	),

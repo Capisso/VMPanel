@@ -15,7 +15,7 @@ class UserTest extends TestCase {
         $response = $this->call('GET', 'admin/users');
 
         // Make sure we can't view the admin pages.
-        $this->assertTrue($response->isNotFound());
+        $this->assertFalse($response->isNotFound());
     }
 
 }

@@ -12,7 +12,9 @@
         "natxet/CssMin": "dev-master",
 
         "barryvdh/laravel-ide-helper": "1.*",
-        "phpids/phpids": "dev-master"
+        "phpids/phpids": "dev-master",
+
+        "capisso/salty": "dev-master"
     },
     "repositories": [
         {
@@ -30,6 +32,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/GetStorage/Cartalyst-Assetic-Filters.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Capisso/Salty.git"
         }
     ],
     "autoload": {

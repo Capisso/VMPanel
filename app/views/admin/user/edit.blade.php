@@ -2,12 +2,65 @@
 
 @section('content')
 
-{{Form::model($user, array('class' => 'form-horizontal', 'action' => array('Admin\UserController@update', $user->id)))}}
-
-{{Form::label('username')}}
-{{Form::text('username')}}
+<h2>Edit User: {{{$user->username}}}</h2>
 
 
-{{Form::close()}}
+<br>
+<div class="row">
+    <div class="col col-lg-3">
+        @include('admin/user/partials/sidebar')
+    </div>
+
+    <div class="col col-lg-6">
+
+        {{Form::model($user, array('class' => 'form-horizontal', 'action' => array('Admin\UserController@update', $user->id)))}}
+        <div class="row">
+            {{Form::label('username','Username', array('class' => 'col col-lg-2 control-label'))}}
+            <div class="col col-lg-10">
+                {{Form::text('username')}}
+            </div>
+        </div>
+        <div class="row">
+            {{Form::label('email','Email', array('class' => 'col col-lg-2 control-label'))}}
+            <div class="col col-lg-10">
+                {{Form::email('email')}}
+            </div>
+        </div>
+        <div class="row">
+            {{Form::label('password','Password', array('class' => 'col col-lg-2 control-label'))}}
+            <div class="col col-lg-10">
+                {{Form::password('password')}}
+                <p>If left blank password will not be updated.</p>
+            </div>
+        </div>
+        <div class="row">
+            {{Form::label('group', 'Group', array('class' => 'col col-lg-2 control-label'))}}
+            <div class="col col-lg-10">
+
+                <select name="" id="" multiple>
+                    @foreach($groups as $id => $name)
+
+
+                    @if(in_array($id, $aGroups))
+                    <option value="{{$id}}" selected>{{{$name}}}</option>
+                    @else
+                    <option value="{{$id}}">{{{$name}}}</option>
+                    @endif
+
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <p>Add a section for notifying that the users account info has changed to the user.</p>
+        <p>Also, activation and group.</p>
+        <div class="row">
+            <div class="col col-lg-10 col-offset-2">
+                <button type="submit" class="btn btn-success">Update Account</button>
+            </div>
+        </div>
+        {{Form::close()}}
+
+    </div>
+</div>
 
 @stop

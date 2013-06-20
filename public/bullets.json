@@ -7,7 +7,7 @@
     },
     {
         "title": "RAM Usage",
-        "ranges": [1400, 2000, 1400],
+        "ranges": [1400, 2048, 1400],
         "measures": [1024, 1024],
         "markers": [1024]
     },
@@ -19,8 +19,8 @@
     },
     {
         "title": "Bandwidth",
-        "ranges": [2000, 2000, 2000],
-        "measures": [1650, 1650],
-        "markers": [1650]
+        "ranges": [20000, 20000, 20000],
+        "measures": [16500, 16500],
+        "markers": [16500]
     }
 ]

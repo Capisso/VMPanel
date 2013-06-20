@@ -65,7 +65,7 @@
                         <li><a href="#">API Access</a></li>
                         <li><a href="#">Settings</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Logout</a></li>
+                        <li>{{HTML::linkAction('AccountController@getLogout', 'Logout')}}</li>
                     </ul>
                 </li>
             </ul>

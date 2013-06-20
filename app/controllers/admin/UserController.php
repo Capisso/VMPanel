@@ -27,7 +27,16 @@ class UserController extends BaseController {
      * @return Response
      */
     public function create() {
-        return View::make('admin/user/create', array('title' => 'Create User'));
+        $sentryGroups = Sentry::getGroupProvider()->findAll();
+        $groups = array();
+        foreach($sentryGroups as $group) {
+            $groups[$group->id] = $group->name;
+        }
+
+        return View::make('admin/user/create', array(
+            'groups' => $groups,
+            'title' => 'Create User'
+        ));
     }
 
     /**
@@ -95,9 +104,27 @@ class UserController extends BaseController {
         }
 
         $user = API::get('admin/users/'. $sentryUser->username);
+        $activeGroups = $user->getGroups();
+
+        $sentryGroups = Sentry::getGroupProvider()->findAll();
+        $groups = array();
+
+        $aGroups = $groups = array();
+        foreach($activeGroups as $group) {
+            $aGroups[] = $group->id;
+        }
+
+        foreach($sentryGroups as $group) {
+            $groups[$group->id] = $group->name;
+        }
 
 
-        return View::make('admin/user/edit', compact('user'));
+        return View::make('admin/user/edit', array(
+            'aGroups' => $aGroups,
+            'groups' => $groups,
+            'user' => $user,
+            'title' => "Edit User: ".$user->username
+        ));
     }
 
     /**

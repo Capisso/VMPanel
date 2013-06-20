@@ -2,9 +2,12 @@
 
 @section('content')
 
-<h2>example.com</h2>
+<h2><small>xen</small> example.com @ 192.168.0.28</h2>
 
 <div class="btn-group">
+    <button type="button" class="btn btn-primary">Snapshots</button>
+    <button type="button" class="btn btn-primary">Backups</button>
+
     <div class="btn-group">
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
             Power Options
@@ -15,20 +18,41 @@
             <li><a href="#">Shutdown</a></li>
         </ul>
     </div>
+</div>
 
-    <button type="button" class="btn btn-default">Shutdown</button>
-    <button type="button" class="btn btn-default">3</button>
+<br><br>
 
-    <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            Dropdown
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li><a href="#">Dropdown link</a></li>
-            <li><a href="#">Dropdown link</a></li>
-            <li><a href="#">Dropdown link</a></li>
-        </ul>
+<div class="row">
+    <div class="col col-lg-5">
+        <dl class="dl-horizontal">
+            <dt>Currently</dt>
+            <dd>Online</dd>
+
+            <dt>Distro</dt>
+            <dd>Ubuntu 13.04 x86_64</dd>
+
+            <dt>Kernel</dt>
+            <dd>3.8.0-19-generic</dd>
+
+            <dt>Region</dt>
+            <dd>Dallas, TX</dd>
+        </dl>
+
+    </div>
+    <div class="col col-lg-7">
+        <dl class="dl-horizontal">
+            <dt>CPU</dt>
+            <dd>AMD FX(tm)-6100 Six-Core Processor</dd>
+
+            <dt>Memory</dt>
+            <dd>2048MB</dd>
+
+            <dt>Disk</dt>
+            <dd>120GB</dd>
+
+            <dt>Bandwidth</dt>
+            <dd>20TB</dd>
+        </dl>
     </div>
 </div>
 
@@ -38,7 +62,7 @@
     <ul id="myTab" class="nav nav-tabs">
         <li class="active"><a href="#">Statistics</a></li>
         <li><a href="#">Terminal</a></li>
-        <li><a href="#">Configuration</a></li>
+        <li><a href="#configuration">Configuration</a></li>
     </ul>
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade in active" id="home">
@@ -109,10 +133,10 @@
             </script>
 
         </div>
-        <div class="tab-pane fade" id="profile">
+        <div class="tab-pane fade" id="terminal">
             <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
         </div>
-        <div class="tab-pane fade" id="dropdown1">
+        <div class="tab-pane fade" id="configuration">
             <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
         </div>
         <div class="tab-pane fade" id="dropdown2">

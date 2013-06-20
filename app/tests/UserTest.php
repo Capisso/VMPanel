@@ -12,9 +12,10 @@ class UserTest extends TestCase {
         //$user = Sentry::getUserProvider()->findByLogin('admin@local.localhost');
         //$this->be($user);
 
-        $crawler = $this->client->request('GET', '/admin');
+        $response = $this->call('GET', 'admin/users');
 
-        $this->assertTrue($this->client->getResponse()->isOk());
+        // Make sure we can't view the admin pages.
+        $this->assertTrue($response->isNotFound());
     }
 
 }

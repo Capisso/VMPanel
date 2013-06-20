@@ -13,8 +13,6 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
 		$testEnvironment = 'testing';
 
-		$this->seed();
-
 		return require __DIR__.'/../../bootstrap/start.php';
 	}
 

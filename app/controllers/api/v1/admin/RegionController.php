@@ -6,13 +6,16 @@ use Response;
 use Input;
 use Validator;
 use Region;
+use Str;
 
 class RegionController extends BaseController {
 
     /**
-     * Display a list of nodes
+     * Lists all regions that exist in the database.
      *
-     * @return Response
+     * @permission admin.region.index
+     *
+     * @return \Cartalyst\Api\Http\Response
      */
     public function index() {
         $nodes = Region::all();
@@ -21,9 +24,11 @@ class RegionController extends BaseController {
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create a new region
      *
-     * @return Response
+     * @permission admin.region.store
+     *
+     * @return \Cartalyst\Api\Http\Response
      */
     public function store() {
         $rules = array(
@@ -48,11 +53,11 @@ class RegionController extends BaseController {
         return Response::api($region);
     }
 
-
     /**
-     * Return the region
+     * Show info about an existing region
      *
      * @param $id
+     * @permission admin.region.show
      *
      * @return \Cartalyst\Api\Http\Response
      */
@@ -62,37 +67,10 @@ class RegionController extends BaseController {
         return Response::api($region);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  string $username
-     *
-     * @return Response
-     */
-    public function edit($id) {
-        $region = Region::find($id);
-
-        return Response::api($region);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
     public function update($id) {
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
     public function destroy($id) {
 
     }

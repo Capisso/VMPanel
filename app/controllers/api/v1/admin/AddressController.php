@@ -13,7 +13,7 @@ class AddressController extends BaseController {
     /**
      * Display a list of nodes
      *
-     * @permission api.admin.address.index
+     * @permission admin.address.index
      *
      * @return Response
      */
@@ -26,7 +26,7 @@ class AddressController extends BaseController {
     /**
      * Store a newly created resource in storage.
      *
-     * @permission api.admin.address.store
+     * @permission admin.address.store
      *
      * @return Response
      */
@@ -41,7 +41,7 @@ class AddressController extends BaseController {
      * Show info about a specific IP address
      *
      * @param $address
-     * @permission api.admin.address.show
+     * @permission admin.address.show
      *
      * @return \Cartalyst\Api\Http\Response
      */
@@ -55,6 +55,7 @@ class AddressController extends BaseController {
      * Update the specified resource in storage.
      *
      * @param  int $id
+     * @permission admin.address.update
      *
      * @return Response
      */
@@ -66,6 +67,7 @@ class AddressController extends BaseController {
      * Remove the specified resource from storage.
      *
      * @param  int $id
+     * @permission admin.address.delete
      *
      * @return Response
      */

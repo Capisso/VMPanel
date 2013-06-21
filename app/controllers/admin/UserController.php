@@ -18,7 +18,10 @@ class UserController extends BaseController {
     public function index() {
         $users = API::get('admin/users');
 
-        return View::make('admin/user/index', array('users' => $users, 'title' => 'All Users'));
+        return View::make('admin/user/index', array(
+            'users' => $users,
+            'title' => 'All Users'
+        ));
     }
 
     /**
@@ -58,16 +61,13 @@ class UserController extends BaseController {
             if ($e->isServerError()) {
 
                 App::abort($e->getStatusCode());
-
             } elseif ($e->isClientError()) {
 
                 return Redirect::action('Admin\UserController@create')
                     ->withErrors($e->getErrors())
                     ->with('message', $e->getMessage());
             }
-
         }
-
     }
 
     /**
@@ -81,12 +81,15 @@ class UserController extends BaseController {
         try {
             $sentryUser = Sentry::getUserProvider()->findById($id);
         } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-            return 'User not found';
+            return Redirect::action('Admin\UsersController@index');
         }
 
         $user = API::get('admin/users/'. $sentryUser->username);
 
-        return View::make('admin/user/show', compact('user'));
+        return View::make('admin/user/show', array(
+            'user' => $user,
+            'title' => 'User: ' .$user->username
+        ));
     }
 
     /**
@@ -100,7 +103,7 @@ class UserController extends BaseController {
         try {
             $sentryUser = Sentry::getUserProvider()->findById($id);
         } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-            return 'User not found';
+            return Redirect::action('Admin\UsersController@index');
         }
 
         $user = API::get('admin/users/'. $sentryUser->username);

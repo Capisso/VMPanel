@@ -16,7 +16,7 @@
     <meta name="author" content="">
 
     <title>
-        @yield('title')
+        {{(isset($title) ? $title : '')}}
     </title>
 
     @foreach (Asset::getCompiledStyles() as $url)

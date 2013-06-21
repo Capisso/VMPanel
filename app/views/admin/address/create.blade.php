@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2>Create IP Addresses</h2>
+<h2>Add IP Addresses</h2>
 <p>You can create either a single IP Address or a block of IP addresses using the tool below.</p>
 
 
@@ -23,22 +23,15 @@
         </div>
         @endif
 
-        {{Form::open(array('action' => 'Admin\RegionController@store', 'class' => 'form-horizontal'))}}
+        {{Form::open(array('action' => 'Admin\AddressController@store', 'class' => 'form-horizontal'))}}
 
         <div class="row">
-            {{Form::label('name','Name', array('class' => 'col col-lg-2 control-label'))}}
+            {{Form::label('addresses','Addresses', array('class' => 'col col-lg-2 control-label'))}}
             <div class="col col-lg-10">
-                {{Form::text('name')}}
-            </div>
-        </div>
-        <div class="row">
-            {{Form::label('location','Location', array('class' => 'col col-lg-2 control-label'))}}
-            <div class="col col-lg-10">
-                {{Form::text('location')}}
-                <p class="help-text">
-                    Location is a descriptive reminder of where this region is, for use in maps and other analytics. <br>
-                    <em>Examples:</em> "32.729819, -96.739967", "Dallas, Tx"
-                </p>
+                {{Form::textarea('addresses')}}
+                <p class="help-text">Addresses or blocks should be separated by line breaks.</p>
+                <p class="help-text">You can specify single or multiple IP addresses via <strong>192.168.0.1/24</strong> or <strong>10.1.20.17-10.1.20.94</strong></p>
+
             </div>
         </div>
         <div class="row">

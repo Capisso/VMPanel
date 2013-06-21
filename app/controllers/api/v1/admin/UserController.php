@@ -81,14 +81,15 @@ class UserController extends BaseController {
     }
 
     /**
-     * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param $username
      *
-     * @return Response
+     * @return \Cartalyst\Sentry\Users\Cartalyst\Sentry\Users\UserInterface
      */
-    public function update($id) {
-        // @todo
+    public function update($username) {
+        $user = Sentry::getUserProvider()->findByLogin($username);
+
+        return $user;
     }
 
     /**

@@ -1,15 +1,14 @@
 <?php
 
-namespace Admin;
+namespace ApiVersionOne\Admin;
 
-use View;
-use IPAddress;
-use Validator;
+use Sentry;
+use Response;
 use Input;
-use Redirect;
-use Str;
+use Validator;
+use Node;
 
-class AddressController extends BaseController {
+class NodeController extends BaseController {
 
     /**
      * Display a list of nodes
@@ -17,9 +16,9 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function index() {
-        $nodes = IPAddress::all();
+        $nodes = Node::all();
 
-        return View::make('admin/address/index');
+        return Response::api($nodes);
     }
 
     /**
@@ -28,7 +27,6 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function create() {
-        return View::make('admin/address/create');
     }
 
     /**
@@ -37,8 +35,7 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function store() {
-        $addresses = Input::get('addresses');
-        var_dump(IPAddress::cidrToRange($addresses));
+
     }
 
     /**
@@ -49,9 +46,7 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        $region = IPAddress::find($id);
 
-        return View::make('admin/address/show', compact('region'));
     }
 
     /**

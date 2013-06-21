@@ -3,6 +3,6 @@
         {{HTML::linkAction('Admin\AddressController@index', 'Home')}}
     </li>
     <li class="{{(Request::is('admin/addresses/create')? 'active' : '')}}">
-        {{HTML::linkAction('Admin\AddressController@create', 'Create')}}
+        {{HTML::linkAction('Admin\AddressController@create', 'Add')}}
     </li>
 </ul>

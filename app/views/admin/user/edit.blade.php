@@ -51,8 +51,19 @@
                 </select>
             </div>
         </div>
-        <p>Add a section for notifying that the users account info has changed to the user.</p>
-        <p>Also, activation and group.</p>
+        <div class="row">
+            {{Form::label('activated','Activated', array('class' => 'col col-lg-2 control-label'))}}
+            <div class="col col-lg-10">
+                {{Form::checkbox('activated')}}
+            </div>
+        </div>
+        <div class="row">
+            {{Form::label('notify','Notify', array('class' => 'col col-lg-2 control-label'))}}
+            <div class="col col-lg-10">
+                {{Form::checkbox('notify')}}
+                <p class="help-text">Notify user of changes.</p>
+            </div>
+        </div>
         <div class="row">
             <div class="col col-lg-10 col-offset-2">
                 <button type="submit" class="btn btn-success">Update Account</button>

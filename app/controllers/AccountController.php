@@ -6,7 +6,7 @@ class AccountController extends BaseController
 
     public function __construct()
     {
-        $this->beforeFilter('guest', ['only' => ['getLogin', 'postLogin']]);
+        $this->beforeFilter('guest', array('only' => array('getLogin', 'postLogin')));
     }
 
     public function getLogin()

@@ -15,7 +15,7 @@ script: phpunit
 notifications:
   irc: 
     channels:
-      - "irc.esper.net#capisso"
+      - "irc.freenode.net#capisso"
     on_success: change
     on_failure: always
     template:

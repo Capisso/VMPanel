@@ -114,6 +114,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+        'Cartalyst\CompositeConfig\CompositeConfigServiceProvider',
+
 		'Capisso\Salty\SaltyServiceProvider',
 
 		'Cartalyst\Sentry\SentryServiceProvider',

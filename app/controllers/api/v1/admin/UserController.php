@@ -9,13 +9,14 @@ use Validator;
 
 class UserController extends BaseController {
 
-
     /**
      * Display a list of users
      *
      * @return \Cartalyst\Api\Http\Response
      */
     public function index() {
+        echo $this->checkPermission('admin.user.index');
+
         $users = Sentry::getUserProvider()->findAll();
 
         return Response::api($users);

@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Example Company</a>
+        <a class="navbar-brand" href="/">{{{Config::get('site.name')}}}</a>
         <div class="nav-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="{{(Request::is('admin/servers*')? 'active' : '')}}"><a href="#">Servers</a></li>

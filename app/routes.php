@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return Redirect::to('/user');
-});
+Route::get('/', array('before' => 'auth', function () {
+
+}));
 
 Route::controller('account', 'AccountController');
 
@@ -78,5 +77,3 @@ Route::group(array('prefix' => 'development'), function () {
         ));
     });
 });
-
-

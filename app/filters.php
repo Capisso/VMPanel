@@ -13,8 +13,6 @@
 
 App::before(function($request)
 {
-    //dd($request);
-
     $fullRequest = array(
         'REQUEST' => $_REQUEST,
         'GET' => $_GET,
@@ -27,14 +25,11 @@ App::before(function($request)
     $result = $ids->run($fullRequest);
 
     if(!$result->isEmpty()) {
-
         foreach($result as $event) {
             Event::fire('security.intrusion', array($event));
         }
-
-
     }
-    
+
 });
 
 
@@ -59,7 +54,7 @@ Route::filter('group', function($route, $request, $group) {
     $group = Sentry::getGroupProvider()->findByName($group);
 
     if(!$user->inGroup($group)) {
-        return Redirect::to('/');
+        return Redirect::action('AccountController@getLogin');
     }
 });
 

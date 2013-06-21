@@ -50,24 +50,24 @@ class AccountController extends BaseController
 
         } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
             dd($e);
-            return Redirect::to('account/login')->withErrors(['Login field is required.']);
+            return Redirect::to('account/login')->withErrors(array('Login field is required.'));
         }
         catch (Cartalyst\Sentry\Users\PasswordRequiredException $e) {
-            return Redirect::to('account/login')->withErrors(['Password field is required.']);
+            return Redirect::to('account/login')->withErrors(array('Password field is required.'));
         }
         catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-            return Redirect::to('account/login')->withErrors(['User was not found.']);
+            return Redirect::to('account/login')->withErrors(array('User was not found.'));
         }
         catch (Cartalyst\Sentry\Users\UserNotActivatedException $e) {
-            return Redirect::to('account/login')->withErrors(['User is not activated.']);
+            return Redirect::to('account/login')->withErrors(array('User is not activated.'));
         }
 
             // The following is only required if throttle is enabled
         catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e) {
-            return Redirect::to('account/login')->withErrors(['User is suspended.']);
+            return Redirect::to('account/login')->withErrors(array('User is suspended.'));
         }
         catch (Cartalyst\Sentry\Throttling\UserBannedException $e) {
-            return Redirect::to('account/login')->withErrors(['User is banned.']);
+            return Redirect::to('account/login')->withErrors(array('User is banned.'));
         }
     }
 
@@ -100,7 +100,7 @@ class AccountController extends BaseController
 
             return Redirect::to('account/resetting');
         } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-            return Redirect::to('account/forgot')->withErrors(['User was not found.']);
+            return Redirect::to('account/forgot')->withErrors(array('User was not found.'));
         }
     }
 
@@ -146,10 +146,10 @@ class AccountController extends BaseController
                     return Redirect::to('account/forgot');
                 }
             } else {
-                return Redirect::to(URL::to('account/reset', array($input['email'], $input['code'])))->withErrors(['Invalid reset key.']);
+                return Redirect::to(URL::to('account/reset', array($input['email'], $input['code'])))->withErrors(array('Invalid reset key.'));
             }
         } catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
-            return Redirect::to(URL::to('account/reset', array($input['email'], $input['code'])))->withErrors(['User was not found.']);
+            return Redirect::to(URL::to('account/reset', array($input['email'], $input['code'])))->withErrors(array('User was not found.'));
         }
     }
 

@@ -37,7 +37,7 @@
             {{Form::label('group', 'Group', array('class' => 'col col-lg-2 control-label'))}}
             <div class="col col-lg-10">
 
-                <select name="" id="" multiple>
+                <select name="" id="">
                     @foreach($groups as $id => $name)
 
 

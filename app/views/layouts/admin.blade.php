@@ -84,6 +84,15 @@
     {{ HTML::script($url) }}
 @endforeach
 
+    <script type="text/javascript">
+        $(function () {
+            $('.organize').dataTable({
+                "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>",
+                "sPaginationType": "bootstrap"
+            });
+        });
+    </script>
+
 
 </body>
 </html>

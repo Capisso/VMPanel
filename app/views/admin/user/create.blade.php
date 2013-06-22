@@ -39,6 +39,13 @@
             </div>
         </div>
         <div class="row">
+            {{Form::label('notify','Notify', array('class' => 'col col-lg-2 control-label'))}}
+            <div class="col col-lg-10">
+                {{Form::checkbox('notify')}}
+                <p class="help-text">Notify email that user has been created on their behalf.</p>
+            </div>
+        </div>
+        <div class="row">
             <div class="col col-lg-10 col-offset-2">
                 <button type="submit" class="btn btn-success">Create Account</button>
             </div>

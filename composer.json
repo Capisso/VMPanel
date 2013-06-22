@@ -6,6 +6,7 @@
         "cartalyst/api": "1.0.*",
         "cartalyst/themes": "2.0.*",
         "cartalyst/composite-config": "1.0.*",
+        "cartalyst/data-grid": "1.0.*",
 
         "cartalyst/assetic-filters": "1.0.*",
         "jasonlewis/basset": "dev-master",
@@ -19,24 +20,8 @@
     },
     "repositories": [
         {
-            "type": "artifact",
-            "url": "http://dn.capis.so/4242ee2d69010a66a3c3edca8a00a3d6.zip"
-        },
-        {
-            "type": "artifact",
-            "url": "http://dn.capis.so/8546de2ea7636783c48763f5002a2c3b.zip"
-        },
-        {
-            "type": "artifact",
-            "url": "http://dn.capis.so/97b5ef6c0229aeee46c1b6e23baf0962.zip"
-        },
-        {
-            "type": "artifact",
-            "url": "http://dn.capis.so/61196a1e512db13328697db5056c8997.zip"
-        },
-        {
-            "type": "artifact",
-            "url": "http://dn.capis.so/12c800498afa9cf30ea6cb797326f7fa.zip"
+            "type": "composer",
+            "url": "http://packages.cartalyst.com"
         },
         {
             "type": "vcs",

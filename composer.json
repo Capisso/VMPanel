@@ -6,7 +6,7 @@
         "cartalyst/api": "1.0.*",
         "cartalyst/themes": "2.0.*",
         "cartalyst/composite-config": "1.0.*",
-        "cartalyst/data-grid": "1.0.*",
+        "cartalyst/data-grid": "dev-master",
 
         "cartalyst/assetic-filters": "1.0.*",
         "jasonlewis/basset": "dev-master",

@@ -6,6 +6,7 @@ use Sentry;
 use Response;
 use Input;
 use Validator;
+use DataGrid;
 
 class UserController extends BaseController {
 
@@ -15,11 +16,15 @@ class UserController extends BaseController {
      * @return \Cartalyst\Api\Http\Response
      */
     public function index() {
-        echo $this->checkPermission('admin.user.index');
+        //echo $this->checkPermission('admin.user.index');
 
-        $users = Sentry::getUserProvider()->findAll();
+        $query = Sentry::getUserProvider()->findAll();
 
-        return Response::api($users);
+        $dataGrid = DataGrid::make($query, array(
+            'username', 'email', 'activated', 'created_at', 'updated_at'
+        ));
+
+        return Response::api($dataGrid);
     }
 
     /**
@@ -90,7 +95,7 @@ class UserController extends BaseController {
     public function update($username) {
         $user = Sentry::getUserProvider()->findByLogin($username);
 
-        return $user;
+        return Response::api($user);
     }
 
     /**

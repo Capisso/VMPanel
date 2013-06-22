@@ -115,14 +115,16 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
         'Cartalyst\CompositeConfig\CompositeConfigServiceProvider',
+        'Cartalyst\Sentry\SentryServiceProvider',
+        'Cartalyst\Api\ApiServiceProvider',
+        'Cartalyst\Themes\ThemeServiceProvider',
+        'Cartalyst\DataGrid\DataGridServiceProvider',
 
-		'Capisso\Salty\SaltyServiceProvider',
-
-		'Cartalyst\Sentry\SentryServiceProvider',
-		'Cartalyst\Api\ApiServiceProvider',
 		'Basset\BassetServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Cartalyst\Themes\ThemeServiceProvider',
+
+        'Capisso\Salty\SaltyServiceProvider',
+
 
     ),
 
@@ -190,6 +192,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 		'API' => 'Cartalyst\Api\Facades\API',
+        'DataGrid' => 'Cartalyst\DataGrid\Facades\DataGrid',
 		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Input'    => 'Cartalyst\Api\Facades\Input',
 		'Request'  => 'Cartalyst\Api\Facades\Request',

@@ -83,16 +83,15 @@
 @foreach (Asset::getCompiledScripts() as $url)
     {{ HTML::script($url) }}
 @endforeach
+    <script type="text/javascript" src="/themes/capisso_default/assets/js/tempo.js"></script>
+    <script type="text/javascript" src="/themes/capisso_default/assets/js/data-grid.js"></script>
 
-    <script type="text/javascript">
-        $(function () {
-            $('.organize').dataTable({
-                "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>",
-                "sPaginationType": "bootstrap"
-            });
+    <script>
+        $(function()
+        {
+            $.datagrid('main', '.results', '.pagination', '.applied');
         });
     </script>
-
 
 </body>
 </html>

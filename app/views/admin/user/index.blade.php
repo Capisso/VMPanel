@@ -11,34 +11,47 @@
     </div>
 
     <div class="col col-lg-9">
-        <table class="table">
+
+        Find: <a href="#" data-filter="all:admins" data-grid="main">Admins</a>
+
+        <ul class="applied" data-grid="main">
+            <li data-template>
+                [? if column == undefined ?]
+                [[ valueLabel ]]
+                [? else ?]
+                [[ valueLabel ]] in [[ columnLabel ]]
+                [? endif ?]
+            </li>
+        </ul>
+
+        <table class="table results" data-grid="main" data-source="{{URL::action('ApiVersionOne\Admin\UserController@index')}}">
             <thead>
                 <tr>
-                    <th></th>
-                    <th>Email</th>
-                    <th>Username</th>
-                    <th>Servers</th>
-                    <th>Created On</th>
-                    <th class="text-right">Actions</th>
+                    <td>Group</td>
+                    <td>Username</td>
+                    <td>Email</td>
+                    <td>Created At</td>
+                    <td>Last Login</td>
+                    <td>Actions</td>
                 </tr>
             </thead>
             <tbody>
+                <tr data-template>
+                    <td></td>
+                    <td>[[ username ]]</td>
+                    <td>[[ email ]]</td>
+                    <td>[[ created_at ]]</td>
+                    <td>[[ updated_at ]]</td>
 
-                @foreach($users as $user)
-                <tr>
-                    <td class="{{{($user->primaryGroup()->name == 'Admins' ? 'text-danger' : '')}}}" title="{{{$user->primaryGroup()->name}}}"><span class="glyphicon glyphicon-user"></span></td>
-                    <td>{{{$user->email}}}</td>
-                    <td>{{{$user->username}}}</td>
-                    <td>30</td>
-                    <td>{{$user->created_at}}</td>
-                    <td>
-                        {{HTML::linkAction('Admin\UserController@show', 'Manage', array($user->id), array('class' => 'btn btn-default btn-small pull-right'))}}
-                    </td>
                 </tr>
-                @endforeach
-
             </tbody>
         </table>
+
+        <ul class="pagination" data-grid="main">
+            <li data-template data-if-infinite data-page="[[ page ]]"<a href="#">>Load More</a></li>
+            <li data-template data-if-throttle data-throttle><a href="#">[[ label ]]</a></li>
+            <li data-template data-page="[[ page ]]"><a href="#">[[ pageStart ]] - [[ pageLimit ]]</a></li>
+        </ul>
 
     </div>
 </div>

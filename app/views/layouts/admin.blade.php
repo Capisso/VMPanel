@@ -54,7 +54,7 @@
                 <li class="{{(Request::is('admin/regions*')? 'active' : '')}}">{{HTML::linkAction('Admin\RegionController@index', 'Regions')}}</li>
                 <li class="{{(Request::is('admin/addresses*')? 'active' : '')}}">{{HTML::linkAction('Admin\AddressController@index', 'IP Addresses')}}</li>
                 <li class="{{(Request::is('admin/security*')? 'active' : '')}}">{{HTML::linkAction('Admin\Security\HomeController@getIndex', 'Security')}}</li>
-                <li class="{{(Request::is('admin/settings*')? 'active' : '')}}"><a href="#contact">Settings</a></li>
+                <li class="{{(Request::is('admin/settings*')? 'active' : '')}}">{{HTML::linkAction('Admin\SettingController@getIndex', 'Settings')}}</li>
             </ul>
 
             <ul class="nav navbar-nav pull-right">

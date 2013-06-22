@@ -35,6 +35,7 @@ Route::group(array('before' => 'auth'), function () {
         Route::resource('nodes', 'Admin\NodeController');
         Route::resource('regions', 'Admin\RegionController');
         Route::resource('addresses', 'Admin\AddressController');
+        Route::controller('settings', 'Admin\SettingController');
 
         Route::group(array('prefix' => 'security'), function() {
             Route::get('/', 'Admin\Security\HomeController@getIndex');

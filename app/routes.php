@@ -15,6 +15,63 @@ Route::get('/', array('before' => 'auth', function () {
 
 }));
 
+Route::get('/testing', function() {
+
+    /*
+     * This is a good base for what our Salty library will be doing.
+     */
+
+    $ip = Config::get('salt.ip');
+    $port = Config::Get('salt.port');
+    $username = Config::get('salt.username');
+    $password = Config::get('salt.password');
+
+    $params = array(
+        'client' => 'local',
+        'username' => $username,
+        'password' => $password,
+        'eauth' => 'pam',
+        'tgt' => 'debian',
+        'fun' => 'virt.freemem',
+        //'arg' => 'name=test_vm cpu=2 mem=512 image=salt://images/ubuntu1204.tar'
+    );
+
+
+    //set up a connection variable for the page you will post data to
+    $curl_connection = curl_init("https://$ip:$port/run");
+
+//curl basic setup
+    curl_setopt($curl_connection, CURLOPT_CONNECTTIMEOUT, 30);
+    curl_setopt($curl_connection, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
+    curl_setopt($curl_connection, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl_connection, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl_connection, CURLOPT_FOLLOWLOCATION, 1);
+
+//$_POST variables to pass
+    foreach($params as $key => $value) {
+        $post_items[] = "$key=$value";
+    }
+
+//format the $post_items into a string
+    $post_string = implode ('&', $post_items);
+
+//send the $_POST data to the new page
+    curl_setopt($curl_connection, CURLOPT_POSTFIELDS, $post_string);
+    $result = curl_exec($curl_connection);
+    curl_close($curl_connection);
+
+    $array = json_decode($result, true);
+
+    foreach($array['return'][0] as $vm => $output) {
+        echo "<h2>$vm</h2><br>";
+
+        echo "<pre>";
+        print_r($output);
+        echo "</pre>";
+    }
+
+});
+
 Route::controller('account', 'AccountController');
 
 // Container for all auth required routes

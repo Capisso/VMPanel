@@ -15,6 +15,7 @@
 
         "barryvdh/laravel-ide-helper": "1.*",
         "phpids/phpids": "dev-master",
+        "rmccue/requests": ">=1.0",
 
         "capisso/salty": "dev-master"
     },

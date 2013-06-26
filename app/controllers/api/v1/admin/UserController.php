@@ -18,13 +18,9 @@ class UserController extends BaseController {
     public function index() {
         //echo $this->checkPermission('admin.user.index');
 
-        $query = Sentry::getUserProvider()->findAll();
+        $users = Sentry::getUserProvider()->findAll();
 
-        $dataGrid = DataGrid::make($query, array(
-            'username', 'email', 'activated', 'created_at', 'updated_at'
-        ));
-
-        return Response::api($dataGrid);
+        return Response::api($users);
     }
 
     /**

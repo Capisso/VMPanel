@@ -4,6 +4,8 @@ namespace Admin;
 
 use View;
 use Node;
+use Config;
+use Salty;
 
 class NodeController extends BaseController {
 
@@ -24,6 +26,16 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function create() {
+        Config::set('salt.credentials', array('clone1018' => 'capisso'));
+        Config::set('salt.auth_type', 'pam');
+
+        $pending = Salty::wheelModule('key')->listPending();
+
+        dd($pending);
+
+        return View::make('admin/node/create', array(
+            'title' => 'Create a Node'
+        ));
     }
 
     /**
@@ -32,6 +44,8 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function store() {
+
+
 
     }
 
@@ -43,7 +57,6 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function show($id) {
-
     }
 
     /**
@@ -54,7 +67,6 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function edit($id) {
-
     }
 
     /**
@@ -65,7 +77,6 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function update($id) {
-
     }
 
     /**
@@ -76,6 +87,5 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-
     }
 }

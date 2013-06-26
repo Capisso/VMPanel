@@ -201,6 +201,8 @@ return array(
 		'Theme' => 'Cartalyst\Themes\Facades\Theme',
 		'Asset' => 'Cartalyst\Themes\Facades\Asset',
 
+        'Salty' => 'Capisso\Salty\Facade',
+
 	),
 
 );

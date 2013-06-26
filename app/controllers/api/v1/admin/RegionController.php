@@ -50,6 +50,8 @@ class RegionController extends BaseController {
 
         $region->save();
 
+        Event::fire('admin.region.create', array($region));
+
         return Response::api($region);
     }
 

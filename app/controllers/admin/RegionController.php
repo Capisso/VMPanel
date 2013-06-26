@@ -56,6 +56,8 @@ class RegionController extends BaseController {
 
         $region->save();
 
+        Event::fire('admin.region.create', array($region));
+
         return Redirect::action('Admin\RegionController@show', array($region->id));
 
     }

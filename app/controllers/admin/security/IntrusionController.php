@@ -40,8 +40,9 @@ class IntrusionController extends BaseController {
      *
      * @return Response
      */
-    public function destroy($id) {
+    public function destroy($id) {)
         $event = IDSLog::find($id)->first();
+        Event::fire('admin.intrusion.destroy', array($event));
         $event->delete();
 
         return \Redirect::action('Admin\Security\IntrusionController@index');

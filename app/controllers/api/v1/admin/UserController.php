@@ -57,6 +57,8 @@ class UserController extends BaseController {
             $user->isActivated(true);
             $user->addGroup($userGroup);
 
+            Event::fire('admin.user.create', array($user));
+
             return Response::api($user);
 
         } catch (Sentry\Users\UserExistsException $e) {

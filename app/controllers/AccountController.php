@@ -141,6 +141,7 @@ class AccountController extends BaseController
             if ($user->checkResetPasswordCode($input['code'])) {
                 // Attempt to reset the user password
                 if ($user->attemptResetPassword($input['code'], $input['password'])) {
+                    Event::fire('user.reset', array($user));
                     return Redirect::to('account/login');
                 } else {
                     return Redirect::to('account/forgot');
@@ -155,6 +156,7 @@ class AccountController extends BaseController
 
     public function getLogout()
     {
+        Event::fire('user.logout', array(Sentry::getUser()));
         Sentry::logout();
 
         return Redirect::to('');

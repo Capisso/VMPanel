@@ -21,9 +21,6 @@ ClassLoader::addDirectories(array(
 
 ));
 
-/* Events */
-Event::listen('security.intrusion', 'IntrusionEventHandler@register');
-
 /*
 |--------------------------------------------------------------------------
 | Application Error Logger
@@ -87,3 +84,14 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/*
+|--------------------------------------------------------------------------
+| Require The Events File
+|--------------------------------------------------------------------------
+|
+| Separate events into their own file.
+|
+*/
+
+require app_path().'/events.php';

@@ -6,4 +6,8 @@ class Node extends Eloquent {
         return $this->hasOne('Region');
     }
 
+    public function servers() {
+        return $this->hasMany('Server');
+    }
+
 }

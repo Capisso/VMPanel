@@ -7,6 +7,7 @@ use Response;
 use Input;
 use Validator;
 use DataGrid;
+use Event;
 
 class UserController extends BaseController {
 
@@ -16,7 +17,8 @@ class UserController extends BaseController {
      * @return \Cartalyst\Api\Http\Response
      */
     public function index() {
-        //echo $this->checkPermission('admin.user.index');
+        if($permissions = $this->checkPermission('admin.user.index')) return $permissions;
+        Event::fire('admin.user.index');
 
         $users = Sentry::getUserProvider()->findAll();
 
@@ -29,6 +31,8 @@ class UserController extends BaseController {
      * @return Response
      */
     public function store() {
+        if($permissions = $this->checkPermission('admin.user.store')) return $permissions;
+
         $input = Input::all();
 
         $rules = array(
@@ -57,7 +61,8 @@ class UserController extends BaseController {
             $user->isActivated(true);
             $user->addGroup($userGroup);
 
-            Event::fire('admin.user.create', array($user));
+
+            Event::fire('admin.user.store', array($user));
 
             return Response::api($user);
 
@@ -76,6 +81,9 @@ class UserController extends BaseController {
      * @return \Cartalyst\Api\Http\Response
      */
     public function show($username) {
+        if($permissions = $this->checkPermission('admin.user.show')) return $permissions;
+        Event::fire('admin.user.show');
+
         $user = Sentry::getUserProvider()->findByLogin($username);
         if(!$user) {
             return Response::api('User not found.', 404);
@@ -91,7 +99,11 @@ class UserController extends BaseController {
      * @return \Cartalyst\Sentry\Users\Cartalyst\Sentry\Users\UserInterface
      */
     public function update($username) {
-        $user = Sentry::getUserProvider()->findByLogin($username);
+        if($permissions = $this->checkPermission('admin.user.update')) return $permissions;
+
+        $oldUser = Sentry::getUserProvider()->findByLogin($username);
+
+        Event::fire('admin.user.show', array($oldUser, $newUser));
 
         return Response::api($user);
     }

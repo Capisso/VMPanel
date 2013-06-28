@@ -18,6 +18,8 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function index() {
+        if($permissions = $this->checkPermission('admin.address.index')) return $permissions;
+
         $nodes = IPAddress::all();
 
         return Response::api($nodes);
@@ -31,6 +33,8 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function store() {
+        if($permissions = $this->checkPermission('admin.address.store')) return $permissions;
+
         $rules = array(
             'address' => 'required',
         );
@@ -46,6 +50,8 @@ class AddressController extends BaseController {
      * @return \Cartalyst\Api\Http\Response
      */
     public function show($address) {
+        if($permissions = $this->checkPermission('admin.address.show')) return $permissions;
+
         $address = IPAddress::where('address', $address)->first();
 
         return Response::api($address);
@@ -60,6 +66,7 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function update($id) {
+        if($permissions = $this->checkPermission('admin.address.update')) return $permissions;
 
     }
 
@@ -72,6 +79,7 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
+        if($permissions = $this->checkPermission('admin.address.destroy')) return $permissions;
 
     }
 }

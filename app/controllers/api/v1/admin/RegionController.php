@@ -18,6 +18,8 @@ class RegionController extends BaseController {
      * @return \Cartalyst\Api\Http\Response
      */
     public function index() {
+        if($permissions = $this->checkPermission('admin.region.index')) return $permissions;
+
         $nodes = Region::all();
 
         return Response::api($nodes);
@@ -31,6 +33,8 @@ class RegionController extends BaseController {
      * @return \Cartalyst\Api\Http\Response
      */
     public function store() {
+        if($permissions = $this->checkPermission('admin.region.store')) return $permissions;
+
         $rules = array(
             'name' => 'required|alpha_num',
             'location' => 'required'
@@ -64,16 +68,20 @@ class RegionController extends BaseController {
      * @return \Cartalyst\Api\Http\Response
      */
     public function show($id) {
+        if($permissions = $this->checkPermission('admin.region.show')) return $permissions;
+
         $region = Region::find($id);
 
         return Response::api($region);
     }
 
     public function update($id) {
+        if($permissions = $this->checkPermission('admin.region.update')) return $permissions;
 
     }
 
     public function destroy($id) {
+        if($permissions = $this->checkPermission('admin.region.destroy')) return $permissions;
 
     }
 }

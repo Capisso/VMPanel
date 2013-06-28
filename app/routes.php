@@ -12,6 +12,7 @@
 */
 
 
+
 Route::get('/', array('before' => 'auth', function () {
 
 }));
@@ -62,6 +63,8 @@ Route::group(array('before' => 'api', 'prefix' => 'api'), function () {
         // Admin
         Route::group(array('prefix' => 'admin'), function() {
             Route::resource('users', 'ApiVersionOne\Admin\UserController');
+            Route::resource('nodes', 'ApiVersionOne\Admin\NodeController');
+            Route::resource('regions', 'ApiVersionOne\Admin\RegionController');
         });
 
         // User

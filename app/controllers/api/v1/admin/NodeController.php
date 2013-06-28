@@ -7,6 +7,8 @@ use Response;
 use Input;
 use Validator;
 use Node;
+use Salty;
+use Config;
 
 class NodeController extends BaseController {
 
@@ -16,17 +18,21 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function index() {
+        if($permissions = $this->checkPermission('admin.node.index')) return $permissions;
+
         $nodes = Node::all();
 
-        return Response::api($nodes);
-    }
+        // Make sure we catch a potentially broken salt config
+        try {
+            $pending = Salty::wheelModule('key')->listPending();
+        } catch (\ErrorException $e) {
+            $pending = array();
+        }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create() {
+        return Response::api(array(
+            'active' => $nodes,
+            'pending' => $pending
+        ));
     }
 
     /**
@@ -35,28 +41,30 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function store() {
+        if($permissions = $this->checkPermission('admin.node.store')) return $permissions;
 
+        $rules = array(
+            'hostname' => 'required|unique:nodes'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+        if($validator->fails()) {
+            return Response::api($validator);
+        }
+
+        $info = Salty::against(Input::get('hostname'))->module('status')->cpuinfo()->getResults(true);
+        dd($info);
     }
 
     /**
-     * Display the user
+     * Display the node
      *
      * @param  int $id
      *
      * @return Response
      */
     public function show($id) {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  string $username
-     *
-     * @return Response
-     */
-    public function edit($id) {
+        if($permissions = $this->checkPermission('admin.node.show')) return $permissions;
 
     }
 
@@ -68,6 +76,7 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function update($id) {
+        if($permissions = $this->checkPermission('admin.node.update')) return $permissions;
 
     }
 
@@ -79,6 +88,7 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
+        if($permissions = $this->checkPermission('admin.node.destroy')) return $permissions;
 
     }
 }

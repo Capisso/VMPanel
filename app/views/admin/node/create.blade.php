@@ -35,10 +35,20 @@
                     <div class="caption">
                         <h3>{{{ $p }}}</h3>
                         <p>We'll add more here to help identify your node.</p>
-                        <p>
-                            {{HTML::linkAction('Admin\NodeController@show', 'Accept', 1, array('class' => 'btn btn-success'))}}
-                            {{HTML::linkAction('Admin\NodeController@show', 'Reject', 1, array('class' => 'btn btn-danger pull-right'))}}
-                        </p>
+                        <div class="row">
+                            <div class="col col-lg-6">
+                                {{ Form::open(array('method' => 'post', 'action' => 'Admin\NodeController@store', 'class' => 'float-left')) }}
+                                {{ Form::input('hidden', 'hostname', $p) }}
+                                {{ Form::input('submit', 'action', 'Accept', array('class' => 'btn btn-success')) }}
+                                {{ Form::close() }}
+                            </div>
+                            <div class="col col-lg-6">
+                                {{ Form::open(array('method' => 'post', 'action' => 'Admin\NodeController@store', 'class' => 'pull-right')) }}
+                                {{ Form::input('hidden', 'hostname', $p) }}
+                                {{ Form::input('submit', 'action', 'Reject', array('class' => 'btn btn-danger')) }}
+                                {{ Form::close() }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

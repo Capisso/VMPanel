@@ -9,3 +9,5 @@ _ide_helper.php
 
 /app/config/local
 /app/config/production
+/public/assets/cache/*.js
+/public/assets/cache/*.css

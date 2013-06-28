@@ -12,19 +12,7 @@
 
     <div class="col col-lg-9">
 
-        Find: <a href="#" data-filter="all:admins" data-grid="main">Admins</a>
-
-        <ul class="applied" data-grid="main">
-            <li data-template>
-                [? if column == undefined ?]
-                [[ valueLabel ]]
-                [? else ?]
-                [[ valueLabel ]] in [[ columnLabel ]]
-                [? endif ?]
-            </li>
-        </ul>
-
-        <table class="table results" data-grid="main" data-source="{{URL::action('ApiVersionOne\Admin\UserController@index')}}">
+        <table class="table">
             <thead>
                 <tr>
                     <td>Group</td>
@@ -36,22 +24,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-template>
-                    <td></td>
-                    <td>[[ username ]]</td>
-                    <td>[[ email ]]</td>
-                    <td>[[ created_at ]]</td>
-                    <td>[[ updated_at ]]</td>
-
+                @foreach($users as $user)
+                <tr>
+                    <td>{{{ $user->primaryGroup()->name }}}</td>
+                    <td>{{ HTML::linkAction('Admin\UserController@show', e($user->username), array($user->id)) }}</td>
+                    <td>{{{ $user->email }}}</td>
+                    <td>{{{ $user->created_at }}}</td>
+                    <td>{{{ $user->updated_at }}}</td>
+                    <td>
+                        {{ Form::open(array('method' => 'DELETE', 'action' => array('Admin\UserController@destroy', $user->id))) }}
+                        {{ Form::submit('Delete', array('class' => 'btn btn-danger btn-small')) }}
+                        {{ Form::close() }}
+                    </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
-
-        <ul class="pagination" data-grid="main">
-            <li data-template data-if-infinite data-page="[[ page ]]"<a href="#">>Load More</a></li>
-            <li data-template data-if-throttle data-throttle><a href="#">[[ label ]]</a></li>
-            <li data-template data-page="[[ page ]]"><a href="#">[[ pageStart ]] - [[ pageLimit ]]</a></li>
-        </ul>
 
     </div>
 </div>

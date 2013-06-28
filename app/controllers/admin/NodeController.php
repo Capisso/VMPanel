@@ -8,8 +8,7 @@ use Redirect;
 use View;
 use Config;
 
-use Node;
-use Salty;
+use API;
 
 class NodeController extends BaseController {
 
@@ -19,9 +18,12 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function index() {
-        $nodes = Node::all();
+        $nodes = API::get('admin/nodes');
 
-        return View::make('admin/node/index');
+        return View::make('admin/node/index', array(
+            'nodes' => $nodes['active'],
+            'title' => ''
+        ));
     }
 
     /**
@@ -30,15 +32,8 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function create() {
-        Config::set('salt.credentials', array('username' => 'clone1018', 'password' => 'capisso'));
-        Config::set('salt.auth_type', 'pam');
-        Config::set('salt.api_certificate_path', false);
-
-        try {
-            $pending = Salty::wheelModule('key')->listPending();
-        } catch (\Requests_Exception $e) {
-            $pending = false;
-        }
+        $nodes = API::get('admin/nodes');
+        $pending = $nodes['pending'];
 
         return View::make('admin/node/create', array(
             'pending' => $pending,
@@ -53,17 +48,7 @@ class NodeController extends BaseController {
      */
     public function store() {
         // Verify we can add this
-        $rules = array(
-            'hostname' => 'required|unique:nodes'
-        );
 
-        $validator = Validator::make(Input::all(), $rules);
-        if($validator->fails()) {
-            return Redirect::action('Admin\NodeController@create')->withErrors($validator);
-        }
-
-        $info = Salty::against(Input::get('hostname'))->module('status')->cpuinfo()->getResults(true);
-        dd($info);
 
     }
 
@@ -76,6 +61,7 @@ class NodeController extends BaseController {
      */
     public function show($id) {
         $node = Node::find($id);
+
 
         return View::make('admin/node/show', array(
             'node' => $node,

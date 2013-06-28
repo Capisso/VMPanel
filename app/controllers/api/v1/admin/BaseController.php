@@ -9,7 +9,7 @@ use App;
 
 class BaseController extends \Controller {
 
-    public $user;
+    protected $user;
 
     public function __construct() {
         if(Sentry::check()) {
@@ -27,9 +27,9 @@ class BaseController extends \Controller {
     }
 
     public function checkPermission($permission) {
+
         if(!$this->user->hasPermission($permission)) {
-            App::abort(401, 'You are not authorized.');
-            return 'nope';
+            return Response::api('You are not authorized', 401);
         }
     }
 

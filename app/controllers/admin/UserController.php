@@ -49,7 +49,6 @@ class UserController extends BaseController {
      */
     public function store() {
 
-
         try {
 
             $user = API::post('admin/users', \Input::all());

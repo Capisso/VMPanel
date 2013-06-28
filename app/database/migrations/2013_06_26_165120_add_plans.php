@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 
+die('dont run yet');
+
 class AddPlans extends Migration {
 
 	/**

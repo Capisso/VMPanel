@@ -52,6 +52,7 @@ Route::group(array('before' => 'auth'), function () {
 
     // Admin
     Route::group(array('prefix' => 'admin', 'before' => 'group:Admins'), function () {
+        Route::get('/', 'Admin\HomeController@getIndex');
         Route::resource('users', 'Admin\UserController');
         Route::resource('nodes', 'Admin\NodeController');
         Route::resource('regions', 'Admin\RegionController');

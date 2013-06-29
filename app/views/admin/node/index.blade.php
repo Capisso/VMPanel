@@ -11,26 +11,20 @@
 
     <div class="col col-lg-9">
         <div class="row">
-            @for($i = 0; $i < 20; $i++)
+            @foreach($nodes as $node)
+
             <div class="col col-lg-4">
                 <div class="thumbnail">
-                    <img data-src="holder.js/300x200" alt="">
                     <div class="caption">
-                        <h3>dal{{$i}}.provider.com</h3>
+                        <h3>{{{ $node->hostname }}}</h3>
                         <p>Some graph/chart</p>
-                        <p>{{HTML::linkAction('Admin\NodeController@show', 'Manage', array($i), array('class' => 'btn btn-primary'))}}</p>
+                        <p>{{ HTML::linkAction('Admin\NodeController@show', 'Manage', array($node->id), array('class' => 'btn btn-primary')) }}</p>
                     </div>
                 </div>
             </div>
-            @if((($i + 1) % 3 == 0))
-        </div>
-        <br>
-        <div class="row">
-            @endif
 
-            @endfor
+            @endforeach
         </div>
-
     </div>
 </div>
 

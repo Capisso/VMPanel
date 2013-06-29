@@ -8,7 +8,7 @@
 
     <li class="nav-header">Regions</li>
     @foreach(Region::all() as $region)
-    <li class="{{(Request::is('admin/regions/'.$region->id)? 'active': '')}}">
+    <li class="{{(Request::is('admin/regions/'.$region->id.'*')? 'active': '')}}">
         {{HTML::linkAction('Admin\RegionController@show', $region->name, array($region->id))}}
     </li>
     @endforeach

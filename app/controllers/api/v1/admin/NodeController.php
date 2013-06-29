@@ -97,6 +97,9 @@ class NodeController extends BaseController {
     public function show($id) {
         if($permissions = $this->checkPermission('admin.node.show')) return $permissions;
 
+        $node = Node::find($id); 
+
+        return Response::api($node);
     }
 
     /**

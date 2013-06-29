@@ -22,7 +22,7 @@ class NodeController extends BaseController {
 
         return View::make('admin/node/index', array(
             'nodes' => $nodes['active'],
-            'title' => ''
+            'title' => 'Active Nodes'
         ));
     }
 
@@ -83,8 +83,7 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        $node = Node::find($id);
-
+        $node = API::get("admin/nodes/$id");
 
         return View::make('admin/node/show', array(
             'node' => $node,

@@ -2,7 +2,7 @@
 
 class Region extends Eloquent {
 
-    public function region() {
+    public function nodes() {
         return $this->hasMany('Node');
     }
 

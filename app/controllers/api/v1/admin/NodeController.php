@@ -26,7 +26,7 @@ class NodeController extends BaseController {
         try {
             $pending = Salty::wheelModule('key')->listPending();
         } catch (\ErrorException $e) {
-            $pending = array();
+            $pending = false;
         }
 
         return Response::api(array(
@@ -36,7 +36,9 @@ class NodeController extends BaseController {
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Either accept/reject a node.
+     * If the node is accepted, add it to Salt and the databse
+     * If the node is rejected, reject it from Salt 
      *
      * @return Response
      */
@@ -44,16 +46,45 @@ class NodeController extends BaseController {
         if($permissions = $this->checkPermission('admin.node.store')) return $permissions;
 
         $rules = array(
-            'hostname' => 'required|unique:nodes'
+            'hostname' => 'required|unique:nodes',
+            'region' => 'required|exists:regions,id',
+            'action' => 'required'
         );
+
 
         $validator = Validator::make(Input::all(), $rules);
         if($validator->fails()) {
             return Response::api($validator);
         }
 
-        $info = Salty::against(Input::get('hostname'))->module('status')->cpuinfo()->getResults(true);
-        dd($info);
+        $action = Input::get('action');
+        $hostname = Input::get('hostname');
+        $region = Input::get('region');
+
+        if($action == 'Accept') {
+
+            $saltAccept = Salty::wheelModule('key')->accept($hostname);
+            //checking
+
+            $node = new Node();
+
+            $node->hostname = $hostname;
+            $node->description = '';
+            $node->region_id = $region;
+            $node->active = true;
+
+            $node->save();
+
+            return Response::api($node);
+
+        } elseif($action == 'Reject') {
+
+            $saltAccept = Salty::wheelModule('key')->reject($hostname);
+
+        } else {
+            return Response::api('Invalid action', 401);
+        }
+
     }
 
     /**

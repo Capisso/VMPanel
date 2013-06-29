@@ -8,6 +8,7 @@ use Validator;
 use Input;
 use Redirect;
 use Str;
+use API;
 
 class RegionController extends BaseController {
 
@@ -37,29 +38,26 @@ class RegionController extends BaseController {
      * @return Response
      */
     public function store() {
-        $rules = array(
-            'name' => 'required|alpha_num',
-            'location' => 'required'
-        );
 
-        $validator = Validator::make(Input::all(), $rules);
-        if($validator->fails()) {
-            return Redirect::action('Admin\RegionController@create')->withErrors($validator);
+        try {
+
+            $region = API::post('admin/regions', Input::all());
+
+        } catch (Cartalyst\Api\Http\ApiHttpException $e) {
+
+            if ($e->isServerError()) {
+
+                App::abort($e->getStatusCode());
+
+            } elseif ($e->isClientError()) {
+
+                return Redirect::action('Admin\RegionController@create')
+                    ->withErrors($e->getErrors())
+                    ->with('message', $e->getMessage());
+            }
         }
 
-        $region = new Region();
-
-        $region->name = Input::get('name');
-        $region->slug = Str::slug(Input::get('name'));
-        $region->location = Input::get('location');
-        $region->active = true;
-
-        $region->save();
-
-        Event::fire('admin.region.create', array($region));
-
         return Redirect::action('Admin\RegionController@show', array($region->id));
-
     }
 
     /**

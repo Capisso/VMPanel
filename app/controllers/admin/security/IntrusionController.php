@@ -5,7 +5,7 @@ namespace Admin\Security;
 use Admin\BaseController;
 use View;
 use IDSLog;
-
+use Event;
 
 class IntrusionController extends BaseController {
 
@@ -40,7 +40,7 @@ class IntrusionController extends BaseController {
      *
      * @return Response
      */
-    public function destroy($id) {)
+    public function destroy($id) {
         $event = IDSLog::find($id)->first();
         Event::fire('admin.intrusion.destroy', array($event));
         $event->delete();

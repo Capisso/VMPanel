@@ -33,9 +33,16 @@ class NodeController extends BaseController {
      */
     public function create() {
         $nodes = API::get('admin/nodes');
+        $allRegions = API::get('admin/regions');
         $pending = $nodes['pending'];
 
+        $regions = array();
+        foreach($allRegions as $region) {
+            $regions[$region->id] = $region->name;
+        }
+
         return View::make('admin/node/create', array(
+            'regions' => $regions,
             'pending' => $pending,
             'title' => 'Create a Node'
         ));
@@ -47,9 +54,25 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function store() {
-        // Verify we can add this
+        try {
 
+            $node = API::post('admin/nodes', Input::all());
 
+        } catch (Cartalyst\Api\Http\ApiHttpException $e) {
+
+            if ($e->isServerError()) {
+
+                App::abort($e->getStatusCode());
+
+            } elseif ($e->isClientError()) {
+
+                return Redirect::action('Admin\NodeController@create')
+                    ->withErrors($e->getErrors())
+                    ->with('message', $e->getMessage());
+            }
+        }
+
+        return Redirect::action('Admin\NodeController@show', array($node->id));
     }
 
     /**

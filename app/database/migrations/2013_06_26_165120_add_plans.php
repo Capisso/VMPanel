@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-die('dont run yet');
 
 class AddPlans extends Migration {
 
@@ -13,6 +12,7 @@ class AddPlans extends Migration {
 	 */
 	public function up()
 	{
+        return;
 		Schema::create('plans', function($table) {
             $table->increments('id');
 

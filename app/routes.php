@@ -11,6 +11,18 @@
 |
 */
 
+Config::set('salt.credentials', array('username' => 'clone1018', 'password' => 'capisso'));
+Config::set('salt.api_certificate_path', false);
+
+Route::get('/test', function() {
+
+
+
+    $cpu = Salty::against('*')->module('status')->cpuinfo()->getResults(false);
+    //$cpu = Salty::against('*')->module('test')->collatz(5)->getResults(true);
+
+    var_dump($cpu);
+});
 
 
 Route::get('/', array('before' => 'auth', function () {

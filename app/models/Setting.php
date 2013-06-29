@@ -28,7 +28,7 @@ class Setting {
 
 
         // save to config
-        Config::set($key, $value);
+        //Config::getLoader()->set($key, $value);
 
         // return
         return Config::get($key);

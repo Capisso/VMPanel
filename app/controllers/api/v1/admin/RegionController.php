@@ -7,6 +7,7 @@ use Input;
 use Validator;
 use Region;
 use Str;
+use Event;
 
 class RegionController extends BaseController {
 
@@ -36,7 +37,7 @@ class RegionController extends BaseController {
         if($permissions = $this->checkPermission('admin.region.store')) return $permissions;
 
         $rules = array(
-            'name' => 'required|alpha_num',
+            'name' => 'required',
             'location' => 'required'
         );
 

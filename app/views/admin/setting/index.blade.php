@@ -59,28 +59,35 @@
 
                 {{ Form::open(array('method' => 'put', 'action' => 'Admin\SettingController@putUpdate', 'class' => 'form-horizontal')) }}
                     <div class="row">
-                        <label for="saltIP" class="col col-lg-2 control-label">Master IP</label>
+                        {{ Form::label('saltHost', 'Host', array('class' => 'col col-lg-2 control-label')) }}
                         <div class="col col-lg-4">
-                            {{Form::text('salt[ip]', Setting::get('salt.ip'), array('id' => 'saltIP'))}}
+                            {{Form::text('salt[host]', Setting::get('salt.host'), array('id' => 'saltHost'))}}
                         </div>
                     </div>
                     <div class="row">
-                        <label for="saltPort" class="col col-lg-2 control-label">Master Port</label>
+                        {{ Form::label('saltPort', 'Port', array('class' => 'col col-lg-2 control-label')) }}
                         <div class="col col-lg-4">
                             {{Form::text('salt[port]', Setting::get('salt.port'), array('id' => 'saltPort'))}}
                         </div>
                     </div>
 
                     <div class="row">
-                        <label for="saltUsername" class="col col-lg-2 control-label">Master Username</label>
+                        {{ Form::label('saltAuth', 'Auth Type', array('class' => 'col col-lg-2 control-label')) }}
                         <div class="col col-lg-4">
-                            {{Form::text('salt[username]', Setting::get('salt.username'), array('id' => 'saltUsername'))}}
+                            {{Form::text('salt[auth_type]', Setting::get('salt.auth_type'), array('id' => 'saltAuth'))}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="saltUsername" class="col col-lg-2 control-label">Username</label>
+                        <div class="col col-lg-4">
+                            {{Form::text('salt[auth_username]', $auth['username'], array('id' => 'saltUsername'))}}
                         </div>
                     </div>
                     <div class="row">
-                        <label for="saltPassword" class="col col-lg-2 control-label">Master Password</label>
+                        <label for="saltPassword" class="col col-lg-2 control-label">Password</label>
                         <div class="col col-lg-4">
-                            {{Form::password('salt[password]', Setting::get('salt.password'), array('id' => 'saltPassword'))}}
+                            {{Form::password('salt[auth_password]', $auth['password'], array('id' => 'saltPassword'))}}
                         </div>
                     </div>
                     <div class="row">

@@ -39,13 +39,12 @@ class AccountController extends BaseController
             // Try to authenticate the user
             $user = Sentry::authenticate($credentials, Input::get('remember', false));
             Event::fire('user.login', array($user));
-
-            $adminGroup = Sentry::getGroupProvider()->findByName('Admins');
-
-            if($user->inGroup($adminGroup)) {
-                return Redirect::to('admin');
+            
+            $redirect = Session::get('redirect');
+            if($redirect) {
+                return Redirect::to($redirect);
             } else {
-                return Redirect::to('user');
+                return Redirect::to('/');
             }
 
         } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {

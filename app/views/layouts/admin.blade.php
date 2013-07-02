@@ -53,6 +53,7 @@
                 <li class="{{(Request::is('admin/nodes*')? 'active' : '')}}">{{HTML::linkAction('Admin\NodeController@index', 'Nodes')}}</li>
                 <li class="{{(Request::is('admin/regions*')? 'active' : '')}}">{{HTML::linkAction('Admin\RegionController@index', 'Regions')}}</li>
                 <li class="{{(Request::is('admin/addresses*')? 'active' : '')}}">{{HTML::linkAction('Admin\AddressController@index', 'IP Addresses')}}</li>
+                <li class="{{(Request::is('admin/plans*')? 'active' : '')}}">{{HTML::linkAction('Admin\PlanController@index', 'Plans')}}</li>
                 <li class="{{(Request::is('admin/security*')? 'active' : '')}}">{{HTML::linkAction('Admin\Security\HomeController@getIndex', 'Security')}}</li>
                 <li class="{{(Request::is('admin/settings*')? 'active' : '')}}">{{HTML::linkAction('Admin\SettingController@getIndex', 'Settings')}}</li>
             </ul>

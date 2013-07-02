@@ -2,22 +2,19 @@
 
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+    public function getIndex() {
+        $user = Sentry::getUser();
 
-	public function showWelcome()
-	{
-		return View::make('layouts.code');
-	}
+        $userGroup = Sentry::getGroupProvider()->findByName('Users');
+        $adminGroup = Sentry::getGroupProvider()->findByName('Admins');
+
+        if($user->inGroup($userGroup)) {
+            return Redirect::to('user');
+        } elseif($user->inGroup($adminGroup)) {
+            return Redirect::to('admin');
+        } else {
+            throw new Exception('User is not in a recognizable group. This is most likely bad.');
+        }
+    }
 
 }

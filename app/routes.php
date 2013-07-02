@@ -24,22 +24,34 @@ Route::get('/test', function() {
     var_dump($cpu);
 });
 
-
-Route::get('/', array('before' => 'auth', function () {
-
-}));
-
+/**
+ * This is a temporary implementation.
+ */
 Route::get('/install/minion', function() {
+    define('CR', "\r");          // Carriage Return: Mac
+    define('LF', "\n");          // Line Feed: Unix
+    define('CRLF', "\r\n");      // Carriage Return and Line Feed: Windows
+    define('BR', '<br />' . LF); // HTML Break
+        
+    $file = file_get_contents(app_path().'/views/static/install/minion.sh');
+    $s = str_replace(CRLF, LF, $file);
+    $s = str_replace(CR, LF, $s);
+    // Don't allow out-of-control blank lines
+    $file = preg_replace("/\n{2,}/", LF . LF, $s);
 
-   return View::make('static/install/minion', array(
-       'master' => Config::get('salt.host')
-   ));
+    $master = Config::get('salt.host');
+    $file = str_replace('$$MASTER$$', $master, $file);
+
+    return Response::make($file, 200, array('Content-Type' => 'text/x-shellscript'));
+
 });
 
 Route::controller('account', 'AccountController');
 
 // Container for all auth required routes
 Route::group(array('before' => 'auth'), function () {
+
+    Route::get('/', 'HomeController@getIndex');
 
     // User
     Route::group(array('prefix' => 'user', 'before' => 'group:Users'), function () {
@@ -57,6 +69,7 @@ Route::group(array('before' => 'auth'), function () {
         Route::resource('nodes', 'Admin\NodeController');
         Route::resource('regions', 'Admin\RegionController');
         Route::resource('addresses', 'Admin\AddressController');
+        Route::resource('plans', 'Admin\PlanController');
         Route::controller('settings', 'Admin\SettingController');
 
         Route::group(array('prefix' => 'security'), function() {
@@ -78,6 +91,7 @@ Route::group(array('before' => 'api', 'prefix' => 'api'), function () {
             Route::resource('users', 'ApiVersionOne\Admin\UserController');
             Route::resource('nodes', 'ApiVersionOne\Admin\NodeController');
             Route::resource('regions', 'ApiVersionOne\Admin\RegionController');
+            Route::resource('plans', 'ApiVersionOne\Admin\PlanController');
         });
 
         // User

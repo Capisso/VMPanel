@@ -60,7 +60,15 @@ Route::filter('group', function($route, $request, $group) {
 
 Route::filter('auth', function()
 {
-	if (!Sentry::getUser()) return Redirect::guest('account/login');
+    if (!Sentry::getUser()) {
+        Session::put('redirect', URL::full());
+        return Redirect::guest('account/login');
+    } 
+
+    if ($redirect = Session::get('redirect')) {
+        Session::forget('redirect');
+        return Redirect::to($redirect);
+    }
 });
 
 

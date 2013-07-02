@@ -86,6 +86,19 @@
                                 </div>
 
                                 <div class="row">
+                                    {{ Form::label('purpose', 'Purpose', array('class' => 'col col-lg-2 control-label')) }}
+                                    <div class="col col-lg-10">
+                                        {{ Form::select('purpose', array(
+                                            'xen' => 'Xen Hypervisor',
+                                            'openvz' => 'OpenVZ Hypervisor',
+                                            'kvm' => 'KVM Hypervisor',
+                                            'backup' => 'Backup'
+
+                                        )) }}
+                                    </div>
+                                </div>
+
+                                <div class="row">
                                     <div class="col col-lg-10 col-offset-2">
                                         {{ Form::hidden('hostname', $p) }}
                                         {{ Form::input('submit', 'action', 'Accept', array('class' => 'btn btn-success')) }}

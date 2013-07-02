@@ -29,7 +29,7 @@ class BaseController extends \Controller {
     public function checkPermission($permission) {
 
         if(!$this->user->hasPermission($permission)) {
-            return Response::api('You are not authorized', 401);
+            return Response::api('You don\'t have permission to access this.', 401);
         }
     }
 

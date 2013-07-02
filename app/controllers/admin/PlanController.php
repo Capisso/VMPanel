@@ -6,44 +6,32 @@ use Input;
 use Validator;
 use Redirect;
 use View;
-use Config;
-
+use Setting;
 use API;
 
-class NodeController extends BaseController {
+class PlanController extends BaseController {
 
     /**
-     * Display a list of nodes
+     * Display a list of plans including servers on that plan
      *
      * @return Response
      */
     public function index() {
-        $nodes = API::get('admin/nodes');
+        $plans = API::get('admin/plans');
 
-        return View::make('admin/node/index', array(
-            'nodes' => $nodes['active'],
-            'title' => 'Active Nodes'
+        return View::make('admin/plan/index', array(
+            'plans' => $plans,
+            'title' => 'Plans'
         ));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new plan.
      *
      * @return Response
      */
     public function create() {
-        $nodes = API::get('admin/nodes');
-        $allRegions = API::get('admin/regions');
-        $pending = $nodes['pending'];
-
-        $regions = array();
-        foreach($allRegions as $region) {
-            $regions[$region->id] = $region->name;
-        }
-
-        return View::make('admin/node/create', array(
-            'regions' => $regions,
-            'pending' => $pending,
+        return View::make('admin/plans/create', array(
             'title' => 'Create a Node'
         ));
     }
@@ -56,7 +44,7 @@ class NodeController extends BaseController {
     public function store() {
         try {
 
-            $node = API::post('admin/nodes', Input::all());
+            $node = API::post('admin/plans', Input::all());
 
         } catch (Cartalyst\Api\Http\ApiHttpException $e) {
 
@@ -66,29 +54,28 @@ class NodeController extends BaseController {
 
             } elseif ($e->isClientError()) {
 
-                return Redirect::action('Admin\NodeController@create')
+                return Redirect::action('Admin\PlanController@create')
                     ->withErrors($e->getErrors())
                     ->with('message', $e->getMessage());
             }
         }
 
-        return Redirect::action('Admin\NodeController@index');
-        return Redirect::action('Admin\NodeController@show', array($node->id));
+        return Redirect::action('Admin\PlanController@show', array($plan->id));
     }
 
     /**
-     * Display the user
+     * Display the play
      *
      * @param  int $id
      *
      * @return Response
      */
     public function show($id) {
-        $node = API::get("admin/nodes/$id");
+        $plan = API::get("admin/plans/$id");
 
-        return View::make('admin/node/show', array(
-            'node' => $node,
-            'title' => 'Manage Node: '.$node->hostname
+        return View::make('admin/plans/show', array(
+            'plan' => $plan,
+            'title' => 'Manage Plan: '.$plan->name 
         ));
     }
 

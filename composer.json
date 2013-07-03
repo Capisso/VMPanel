@@ -62,13 +62,13 @@
     },
     "scripts": {
         "pre-update-cmd": [
-            "php artisan clear-compiled"
+            "php artisan clear-compiled || true"
         ],
         "post-install-cmd": [
-            "php artisan optimize"
+            "php artisan optimize || true"
         ],
         "post-update-cmd": [
-            "php artisan optimize"
+            "php artisan optimize || true"
         ]
     },
     "config": {

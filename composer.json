@@ -8,7 +8,7 @@
         "cartalyst/composite-config": "1.0.*",
         "cartalyst/data-grid": "dev-master",
         "cartalyst/assetic-filters": "1.0.*",
-        
+
         "jasonlewis/basset": "dev-master",
         "lmammino/jsmin4assetic": "dev-master",
         "natxet/CssMin": "dev-master",
@@ -39,6 +39,14 @@
         {
             "type": "vcs",
             "url": "https://github.com/Capisso/data-grid.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Capisso/assetic-filters.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Capisso/dependencies.git"
         }
     ],
     "autoload": {

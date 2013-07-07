@@ -11,9 +11,6 @@
 |
 */
 
-Config::set('salt.credentials', array('username' => 'clone1018', 'password' => 'capisso'));
-Config::set('salt.api_certificate_path', false);
-
 Route::get('/test', function() {
 
 
@@ -51,6 +48,8 @@ Route::controller('account', 'AccountController');
 // Container for all auth required routes
 Route::group(array('before' => 'auth'), function () {
 
+    // @todo set theme
+
     Route::get('/', 'HomeController@getIndex');
 
     // User
@@ -58,6 +57,8 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('/', function () {
             return View::make('user.index');
         });
+
+        Route::resource('servers', 'User\ServerController');
     });
 
     // Reseller?

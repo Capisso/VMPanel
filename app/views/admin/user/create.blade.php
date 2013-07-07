@@ -1,59 +1,59 @@
-@extends('layouts/admin')
+@extends('templates/admin/sidebar')
+
+@section('sidebar')
+    @include('admin/user/partials/sidebar')
+@stop
 
 @section('content')
 
-<h2>Create New User</h2>
-<p>Please note if you store your customers on an external billing panel you'll need to add and sync the user there too.</p>
-
-<br>
-<div class="row">
-    <div class="col col-lg-3">
-        @include('admin/user/partials/sidebar')
-    </div>
-
-    <div class="col col-lg-6">
-
-        {{Form::open(array('action' => 'Admin\UserController@store', 'class' => 'form-horizontal'))}}
-        <div class="row">
-            {{Form::label('username','Username', array('class' => 'col col-lg-2 control-label'))}}
-            <div class="col col-lg-10">
-                {{Form::text('username')}}
-            </div>
-        </div>
-        <div class="row">
-            {{Form::label('email','Email', array('class' => 'col col-lg-2 control-label'))}}
-            <div class="col col-lg-10">
-                {{Form::email('email')}}
-            </div>
-        </div>
-        <div class="row">
-            {{Form::label('password','Password', array('class' => 'col col-lg-2 control-label'))}}
-            <div class="col col-lg-10">
-                {{Form::password('password')}}
-            </div>
-        </div>
-        <div class="row">
-            {{Form::label('group', 'Group', array('class' => 'col col-lg-2 control-label'))}}
-            <div class="col col-lg-10">
-                {{Form::select('group', $groups)}}
-            </div>
-        </div>
-        <div class="row">
-            {{Form::label('notify','Notify', array('class' => 'col col-lg-2 control-label'))}}
-            <div class="col col-lg-10">
-                {{Form::checkbox('notify')}}
-                <p class="help-text">Notify email that user has been created on their behalf.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-lg-10 col-offset-2">
-                <button type="submit" class="btn btn-success">Create Account</button>
-            </div>
-        </div>
-        {{Form::close()}}
-
-    </div>
+<div class="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p>Please note if you store your customers on an external billing panel you'll need to add and sync the user there too.</p>
 </div>
 
+{{ Form::open(array('action' => 'Admin\UserController@store', 'class' => 'form-horizontal')) }}
+
+    <div class="control-group">
+        {{ Form::label('username','Username', array('class' => 'control-label')) }}
+        <div class="controls">
+            {{ Form::text('username') }}
+        </div>
+    </div>
+
+    <div class="control-group">
+        {{ Form::label('email','Email', array('class' => 'control-label')) }}
+        <div class="controls">
+            {{ Form::email('email') }}
+        </div>
+    </div>
+
+    <div class="control-group">
+        {{ Form::label('password','Password', array('class' => 'control-label')) }}
+        <div class="controls">
+            {{ Form::password('password') }}
+        </div>
+    </div>
+
+    <div class="control-group">
+        {{ Form::label('group','Group', array('class' => 'control-label')) }}
+        <div class="controls">
+            {{ Form::select('group', $groups) }}
+        </div>
+    </div>
+
+    <div class="control-group">
+        {{ Form::label('notify','Notify', array('class' => 'control-label')) }}
+        <div class="controls">
+            {{ Form::checkbox('notify') }}
+            <p class="help-block">Notify email that user has been created on their behalf.</p>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn btn-success">Create Account</button>
+        </div>
+    </div>
+{{ Form::close() }}
 
 @stop

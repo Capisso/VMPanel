@@ -38,7 +38,7 @@ class UserController extends BaseController {
 
         return View::make('admin/user/create', array(
             'groups' => $groups,
-            'title' => 'Create User'
+            'title' => 'Create User',
         ));
     }
 

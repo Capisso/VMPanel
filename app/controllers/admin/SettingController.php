@@ -30,8 +30,6 @@ class SettingController extends BaseController {
     }
 
     public function putUpdate() {
-        die('Currently working on this :)');
-
         // Handle the rest of the settings
 
         $fields = Input::all();

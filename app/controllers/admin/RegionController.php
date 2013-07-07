@@ -20,7 +20,9 @@ class RegionController extends BaseController {
     public function index() {
         $nodes = Region::all();
 
-        return View::make('admin/region/index');
+        return View::make('admin/region/index', array(
+            'title' => 'Regions'
+        ));
     }
 
     /**
@@ -29,7 +31,9 @@ class RegionController extends BaseController {
      * @return Response
      */
     public function create() {
-        return View::make('admin/region/create');
+        return View::make('admin/region/create', array(
+            'title' => 'Create Region'
+        ));
     }
 
     /**
@@ -70,7 +74,10 @@ class RegionController extends BaseController {
     public function show($id) {
         $region = Region::find($id);
 
-        return View::make('admin/region/show', compact('region'));
+        return View::make('admin/region/show', array(
+            'region' => $region,
+            'title' => 'Regions'
+        ));
     }
 
     /**

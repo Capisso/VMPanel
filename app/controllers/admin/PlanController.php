@@ -21,7 +21,8 @@ class PlanController extends BaseController {
 
         return View::make('admin/plan/index', array(
             'plans' => $plans,
-            'title' => 'Plans'
+            'title' => 'Plans',
+            'subtitle' => 'Manage your plans'
         ));
     }
 
@@ -31,8 +32,8 @@ class PlanController extends BaseController {
      * @return Response
      */
     public function create() {
-        return View::make('admin/plans/create', array(
-            'title' => 'Create a Node'
+        return View::make('admin/plan/create', array(
+            'title' => 'Create Plan'
         ));
     }
 
@@ -73,7 +74,7 @@ class PlanController extends BaseController {
     public function show($id) {
         $plan = API::get("admin/plans/$id");
 
-        return View::make('admin/plans/show', array(
+        return View::make('admin/plan/show', array(
             'plan' => $plan,
             'title' => 'Manage Plan: '.$plan->name 
         ));

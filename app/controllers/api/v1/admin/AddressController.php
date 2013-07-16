@@ -41,7 +41,7 @@ class AddressController extends BaseController {
         );
         $validator = Validator::make(Input::all(), $rules);
         if($validator->fails()) {
-            return Response::api($validator);
+            return Response::api($validator, 400);
         }
 
         $addresses = explode("\r\n", Input::get('addresses'));

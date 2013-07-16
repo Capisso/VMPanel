@@ -8,6 +8,7 @@ use Validator;
 use Input;
 use Redirect;
 use Str;
+use App;
 use API;
 
 class AddressController extends BaseController {
@@ -21,7 +22,9 @@ class AddressController extends BaseController {
         $addresses = API::get('admin/addresses');
 
         return View::make('admin/address/index', array(
-            'addresses' => $addresses
+            'addresses' => $addresses,
+            'title' => 'IP Addresses',
+            'description' => 'A list of IP Addresses tracked by the panel.'
         ));
     }
 
@@ -31,7 +34,10 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function create() {
-        return View::make('admin/address/create');
+        return View::make('admin/address/create', array(
+            'title' => 'Add IP Addresses',
+            'description' => 'You can create either a single IP Address or a block of IP addresses using the tool below.'
+        ));
     }
 
     /**
@@ -46,6 +52,7 @@ class AddressController extends BaseController {
 
         } catch (Cartalyst\Api\Http\ApiHttpException $e) {
 
+            dd($e->getErrors());
             if ($e->isServerError()) {
 
                 App::abort($e->getStatusCode());

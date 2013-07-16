@@ -6,14 +6,6 @@
 
 @section('content')
 
-<style>
-    .column {
-        -moz-column-count:3; /* Firefox */
-        -webkit-column-count:3; /* Safari and Chrome */
-        column-count:3;
-    }
-</style>
-
 <table class="table column">
     <tbody class="">
         @foreach($addresses as $address)
@@ -23,13 +15,5 @@
         @endforeach 
     </tbody>
 </table>
-
-
-
-
-
-
-
-
 
 @stop

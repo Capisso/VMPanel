@@ -8,6 +8,7 @@ use Redirect;
 use View;
 use Setting;
 use API;
+use App;
 
 class PlanController extends BaseController {
 
@@ -45,7 +46,7 @@ class PlanController extends BaseController {
     public function store() {
         try {
 
-            $node = API::post('admin/plans', Input::all());
+            $plan = API::post('admin/plans', Input::all());
 
         } catch (Cartalyst\Api\Http\ApiHttpException $e) {
 

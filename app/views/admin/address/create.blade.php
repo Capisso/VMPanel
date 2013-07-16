@@ -6,11 +6,6 @@
 
 @section('content')
 
-<h2>Add IP Addresses</h2>
-<p>You can create either a single IP Address or a block of IP addresses using the tool below.</p>
-
-
-
 @if($errors->count() > 0)
 <div class="alert alert-danger">
     <ul>

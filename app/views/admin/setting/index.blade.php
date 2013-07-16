@@ -2,8 +2,9 @@
 
 @section('sidebar')
 <ul id="settingTab" class="nav nav-pills nav-stacked">
-    <li class="nav-header">Categories</li>
+    <li class="nav-header">Setting Manager</li>
     <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+    <li><a href="#theme" data-toggle="tab">Theme Options</a></li>
     <li><a href="#profile" data-toggle="tab">Server Communication</a></li>
 </ul>
 @stop
@@ -41,6 +42,38 @@
                 </div>
             </div>
         {{ Form::close() }}
+
+    </div>
+    <div class="tab-pane fade" id="theme">
+
+        <h3>Bootswatcher</h3>
+        <p>You can use Bootswatch to easily change the "skin" of your panel. </p>
+
+        {{ Form::open(array('method' => 'put', 'action' => 'Admin\SettingController@putUpdate', 'class' => 'form-horizontal')) }}
+            <div class="control-group">
+                <label for="themeBootswatch" class="control-label">Skin</label>
+                <div class="controls">
+                    {{ Form::select('theme[bootswatch]', $bootswatchSkins) }}
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                </div>
+            </div>
+        {{ Form::close() }}
+
+        <h4>Avaliable Skins</h4>
+        <ul class="thumbnails">
+            @foreach($bootswatch as $skin)
+            <li class="span2">
+                <div class="thumbnail">
+                    <img src="{{ $skin['thumbnail'] }}" alt="">
+                    <h3 class="text-center">{{{ $skin['name'] }}}</h3>
+                </div>
+            </li>
+            @endforeach
+        </ul>
 
     </div>
     <div class="tab-pane fade" id="profile">

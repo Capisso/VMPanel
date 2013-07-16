@@ -10,13 +10,10 @@ class HomeController extends BaseController {
 
     public function getIndex() {
 
-        return View::make('admin/security/index');
-    }
-
-    public function getIds() {
-        $events = IDSLog::all();
-
-        return View::make('admin/security/ids', compact('events'));
+        return View::make('admin/security/index', array(
+            'title' => 'Security Homepage',
+            'description' => 'We\'ll be adding more information here soon, for now view the individual modules on the left.',
+        ));
     }
 
 }

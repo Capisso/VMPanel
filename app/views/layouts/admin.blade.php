@@ -1,5 +1,13 @@
 {{-- Styles --}}
+
+@if(Config::get('theme.skin'))
+{{Asset::queue('bootstrap', 'https://netdna.bootstrapcdn.com/bootswatch/2.3.2/'.Config::get('theme.skin').'/bootstrap.min.css')}}
+@else 
 {{Asset::queue('bootstrap', 'bootstrap/css/bootstrap.css')}}
+@endif
+
+
+
 {{Asset::queue('bootstrap-responsive', 'bootstrap/css/bootstrap-responsive.min.css', 'boostrap')}}
 {{Asset::queue('main', 'css/main.css')}}
 

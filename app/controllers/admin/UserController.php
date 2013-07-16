@@ -9,7 +9,7 @@ use Redirect;
 use App;
 
 class UserController extends BaseController {
-
+    
     /**
      * Display a list of users
      *
@@ -20,7 +20,8 @@ class UserController extends BaseController {
 
         return View::make('admin/user/index', array(
             'users' => $users,
-            'title' => 'All Users'
+            'title' => 'Users',
+            'description' => 'Below is a full list of all users VMPanel is keeping track of. If this list is out of sync with your billing system, please sync or create the user using the nav on the right.'
         ));
     }
 

@@ -1,4 +1,5 @@
 <ul class="nav nav-pills nav-stacked">
+    <li class="nav-header">Plan Manager</li>
     <li class="{{(Request::is('admin/plans')? 'active' : '')}}">
         {{HTML::linkAction('Admin\PlanController@index', 'Home')}}
     </li>

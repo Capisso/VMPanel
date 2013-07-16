@@ -66,7 +66,7 @@ Route::group(array('before' => 'auth'), function () {
     // Admin
     Route::group(array('prefix' => 'admin', 'before' => 'group:Admins'), function () {
         Route::get('/', 'Admin\HomeController@getIndex');
-        Route::resource('users', 'Admin\UserController');
+        Route::resource('users', 'Admin\UserController');        
         Route::resource('nodes', 'Admin\NodeController');
         Route::resource('regions', 'Admin\RegionController');
         Route::resource('addresses', 'Admin\AddressController');
@@ -93,6 +93,7 @@ Route::group(array('before' => 'api', 'prefix' => 'api'), function () {
             Route::resource('nodes', 'ApiVersionOne\Admin\NodeController');
             Route::resource('regions', 'ApiVersionOne\Admin\RegionController');
             Route::resource('plans', 'ApiVersionOne\Admin\PlanController');
+            Route::resource('addresses', 'ApiVersionOne\Admin\AddressController');
         });
 
         // User

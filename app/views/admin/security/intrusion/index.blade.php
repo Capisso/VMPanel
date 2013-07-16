@@ -6,10 +6,6 @@
 
 @section('content')
 
-<h2>Intrusion Detection System</h2>
-<p>This system automatically detects attempted SQL Injection/XSS exploits made against your panel. You can view more
-    information about the event or report it to Capisso by clicking view.</p>
-
 <table class="table">
 
     <thead>

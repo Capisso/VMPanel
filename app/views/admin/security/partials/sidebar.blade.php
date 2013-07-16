@@ -1,5 +1,5 @@
 <ul class="nav nav-pills nav-stacked">
-    <li class="nav-header">Security</li>
+    <li class="nav-header">Security Manager</li>
     <li class="{{(Request::is('admin/security')? 'active' : '')}}">
         {{HTML::linkAction('Admin\Security\HomeController@getIndex', 'Home')}}
     </li>

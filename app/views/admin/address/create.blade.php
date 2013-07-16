@@ -35,7 +35,7 @@
 </div>
 <div class="control-group">
     <div class="controls">
-        <button type="submit" class="btn btn-success">Create Region</button>
+        <button type="submit" class="btn btn-success">Add Addresses</button>
     </div>
 </div>
 

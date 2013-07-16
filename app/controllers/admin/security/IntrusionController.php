@@ -17,7 +17,11 @@ class IntrusionController extends BaseController {
     public function index() {
         $events = IDSLog::all();
 
-        return View::make('admin/security/intrusion/index', compact('events'));
+        return View::make('admin/security/intrusion/index', array(
+            'events' => $events,
+            'title' => 'Intrusion Detection System',
+            'description' => 'This system automatically detects attempted SQL Injection/XSS exploits made against your panel. You can view more information about the event or report it to Capisso by clicking view.',
+        ));
     }
 
     /**

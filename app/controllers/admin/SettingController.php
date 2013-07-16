@@ -22,9 +22,17 @@ class SettingController extends BaseController {
 
         $auth = Setting::get('salt.credentials');
 
+        $bootswatch = json_decode(file_get_contents('http://api.bootswatch.com/'), true);
+        $skins = array();
+        foreach($bootswatch['themes'] as $theme) {
+            $skins[$theme['name']] = $theme['name'];
+        }
+
 
         return View::make('admin/setting/index', array(
             'auth' => $auth,
+            'bootswatch' => $bootswatch['themes'],
+            'bootswatchSkins' => $skins,
             'title' => 'Settings Manager'
         ));
     }

@@ -7,6 +7,7 @@ use Response;
 use Input;
 use Validator;
 use IPAddress;
+use CIDR;
 
 class AddressController extends BaseController {
 
@@ -36,8 +37,56 @@ class AddressController extends BaseController {
         if($permissions = $this->checkPermission('admin.address.store')) return $permissions;
 
         $rules = array(
-            'address' => 'required',
+            'addresses' => 'required',
         );
+        $validator = Validator::make(Input::all(), $rules);
+        if($validator->fails()) {
+            return Response::api($validator);
+        }
+
+        $addresses = explode("\r\n", Input::get('addresses'));
+
+        $toAdd = array();
+        foreach($addresses as $address) {
+            $type = IPAddress::getInputType($address);
+
+            switch ($type) {
+                case 'single':
+                    $toAdd[] = $address;
+                    
+                    break;
+                
+                case 'cidr':
+                    $range = CIDR::cidrToRange($address);
+                    $allAddresses = CIDR::rangeToUsable($range[0], $range[1]);
+
+                    $toAdd = array_merge($toAdd, $allAddresses);
+
+                    break;
+
+                case 'range': 
+                    $range = explode('-', $address);
+                    $allAddresses = CIDR::rangeToUsable($range[0], $range[1]);
+
+                    $toAdd = array_merge($toAdd, $allAddresses);
+
+                    break;
+
+                default:
+                    throw new \Exception('Unexpected InputType');
+                    break;
+            }            
+        }
+        
+        foreach($toAdd as $address) {
+            IPAddress::create(array(
+                'address' => $address,
+                'type' => IPAddress::getType($address),
+                'active' => true,
+            ));
+        }
+
+        return Response::api($toAdd);
     }
 
 

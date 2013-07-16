@@ -22,7 +22,7 @@ class PlanController extends BaseController {
         return View::make('admin/plan/index', array(
             'plans' => $plans,
             'title' => 'Plans',
-            'subtitle' => 'Manage your plans'
+            'description' => 'Plans are standard templates for deploying virtual servers.'
         ));
     }
 
@@ -33,7 +33,7 @@ class PlanController extends BaseController {
      */
     public function create() {
         return View::make('admin/plan/create', array(
-            'title' => 'Create Plan'
+            'title' => 'Create Plan',
         ));
     }
 

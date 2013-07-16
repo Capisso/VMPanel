@@ -20,7 +20,7 @@
     <tbody>
         @foreach($users as $user)
         <tr>
-            <td>{{{ $user->primaryGroup()->name }}}</td>
+            <td><i class="{{ ($user->primaryGroup()->name == 'Admins' ? 'icon-star' : 'icon-user' ) }}"></i> </td>
             <td>{{ HTML::linkAction('Admin\UserController@show', e($user->username), array($user->id)) }}</td>
             <td>{{{ $user->email }}}</td>
             <td>{{{ $user->created_at }}}</td>

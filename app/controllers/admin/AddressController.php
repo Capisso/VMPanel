@@ -8,6 +8,7 @@ use Validator;
 use Input;
 use Redirect;
 use Str;
+use API;
 
 class AddressController extends BaseController {
 
@@ -17,9 +18,11 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function index() {
-        $nodes = IPAddress::all();
+        $addresses = API::get('admin/addresses');
 
-        return View::make('admin/address/index');
+        return View::make('admin/address/index', array(
+            'addresses' => $addresses
+        ));
     }
 
     /**
@@ -37,8 +40,25 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function store() {
-        $addresses = Input::get('addresses');
-        var_dump(IPAddress::cidrToRange($addresses));
+        try {
+
+            API::post('admin/addresses', Input::all());
+
+        } catch (Cartalyst\Api\Http\ApiHttpException $e) {
+
+            if ($e->isServerError()) {
+
+                App::abort($e->getStatusCode());
+
+            } elseif ($e->isClientError()) {
+
+                return Redirect::action('Admin\AddressController@create')
+                    ->withErrors($e->getErrors())
+                    ->with('message', $e->getMessage());
+            }
+        }
+
+        return Redirect::action('Admin\AddressController@index');
     }
 
     /**

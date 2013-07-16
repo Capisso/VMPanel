@@ -54,6 +54,7 @@
             "app/commands",
             "app/controllers",
             "app/models",
+            "app/libraries",
             "app/handlers",
             "app/database/migrations",
             "app/database/seeds",

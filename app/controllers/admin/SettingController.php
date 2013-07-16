@@ -22,10 +22,17 @@ class SettingController extends BaseController {
 
         $auth = Setting::get('salt.credentials');
 
-        $bootswatch = json_decode(file_get_contents('http://api.bootswatch.com/'), true);
+        $bootswatch = array();
+        try {
+            $bootswatch = json_decode(file_get_contents('http://api.bootswatch.com/'), true);
+        } catch(\Exception $e) {
+            echo $e->getMessage();
+        }
+
         $skins = array();
+        $skins[''] = 'None';
         foreach($bootswatch['themes'] as $theme) {
-            $skins[$theme['name']] = $theme['name'];
+            $skins[strtolower($theme['name'])] = $theme['name'];
         }
 
 
@@ -49,6 +56,7 @@ class SettingController extends BaseController {
 
             // Handle salt
             if($key == 'salt') {
+                exit('this isn\'t ready');
                 $auth = Config::get('salt.credentials');
                 foreach($value as $k => $v) {
                     if($k == 'auth_username')
@@ -58,13 +66,9 @@ class SettingController extends BaseController {
 
                     Config::set($k, $v);
                 }
-                dd($value);
             }
 
-
-
             $key = str_replace('_', '.', $key);
-
             Setting::set($key, $value);
         }
 

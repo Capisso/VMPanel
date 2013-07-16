@@ -53,7 +53,7 @@
             <div class="control-group">
                 <label for="themeBootswatch" class="control-label">Skin</label>
                 <div class="controls">
-                    {{ Form::select('theme[bootswatch]', $bootswatchSkins) }}
+                    {{ Form::select('theme.bootswatch', $bootswatchSkins, Config::get('theme.bootswatch'), array('id' => 'themeBootswatch')) }}
                 </div>
             </div>
             <div class="control-group">

@@ -1,8 +1,6 @@
 {{-- Styles --}}
 
-@if(Config::get('theme.skin'))
-{{Asset::queue('bootstrap', 'https://netdna.bootstrapcdn.com/bootswatch/2.3.2/'.Config::get('theme.skin').'/bootstrap.min.css')}}
-@else 
+@if(!Config::get('theme.bootswatch'))
 {{Asset::queue('bootstrap', 'bootstrap/css/bootstrap.css')}}
 @endif
 
@@ -27,6 +25,10 @@
     <title>
         {{(isset($title) ? $title : '')}}
     </title>
+
+    @if(Config::get('theme.bootswatch'))
+    {{ HTML::style('https://netdna.bootstrapcdn.com/bootswatch/2.3.2/'.Config::get('theme.bootswatch').'/bootstrap.min.css') }}
+    @endif
 
 @foreach (Asset::getCompiledStyles() as $url)
     {{ HTML::style($url) }}

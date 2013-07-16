@@ -25,13 +25,13 @@ class SettingController extends BaseController {
         $bootswatch = array();
         try {
             $bootswatch = json_decode(file_get_contents('http://api.bootswatch.com/'), true);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             echo $e->getMessage();
         }
 
         $skins = array();
         $skins[''] = 'None';
-        foreach($bootswatch['themes'] as $theme) {
+        foreach ($bootswatch['themes'] as $theme) {
             $skins[strtolower($theme['name'])] = $theme['name'];
         }
 
@@ -48,21 +48,27 @@ class SettingController extends BaseController {
         // Handle the rest of the settings
 
         $fields = Input::all();
-        foreach($fields as $key => $value) {
+        foreach ($fields as $key => $value) {
             // Check if it's a private key
-            if(\Str::startsWith($key, '_')) continue;
+            if (\Str::startsWith($key, '_')) {
+                continue;
+            }
             // Void unchanged/unset values.
-            if($value == '') continue;
+            if ($value == '') {
+                continue;
+            }
 
             // Handle salt
-            if($key == 'salt') {
+            if ($key == 'salt') {
                 exit('this isn\'t ready');
                 $auth = Config::get('salt.credentials');
-                foreach($value as $k => $v) {
-                    if($k == 'auth_username')
+                foreach ($value as $k => $v) {
+                    if ($k == 'auth_username') {
                         $auth['username'] = $v;
-                    if($k == 'auth_password' && $v != '')
+                    }
+                    if ($k == 'auth_password' && $v != '') {
                         $auth['password'] = $v;
+                    }
 
                     Config::set($k, $v);
                 }
@@ -73,9 +79,6 @@ class SettingController extends BaseController {
         }
 
 
-
         return Redirect::action('Admin\SettingController@getIndex');
-
     }
-
 }

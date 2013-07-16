@@ -9,7 +9,7 @@ use Redirect;
 use App;
 
 class UserController extends BaseController {
-    
+
     /**
      * Display a list of users
      *
@@ -33,7 +33,7 @@ class UserController extends BaseController {
     public function create() {
         $sentryGroups = Sentry::getGroupProvider()->findAll();
         $groups = array();
-        foreach($sentryGroups as $group) {
+        foreach ($sentryGroups as $group) {
             $groups[$group->id] = $group->name;
         }
 
@@ -55,7 +55,6 @@ class UserController extends BaseController {
             $user = API::post('admin/users', \Input::all());
 
             return Redirect::action('Admin\UserController@show', array($user->id));
-
         } catch (Cartalyst\Api\Http\ApiHttpException $e) {
 
             if ($e->isServerError()) {
@@ -84,11 +83,11 @@ class UserController extends BaseController {
             return Redirect::action('Admin\UsersController@index');
         }
 
-        $user = API::get('admin/users/'. $sentryUser->username);
+        $user = API::get('admin/users/' . $sentryUser->username);
 
         return View::make('admin/user/show', array(
             'user' => $user,
-            'title' => 'User: ' .$user->username
+            'title' => 'User: ' . $user->username
         ));
     }
 
@@ -106,18 +105,18 @@ class UserController extends BaseController {
             return Redirect::action('Admin\UsersController@index');
         }
 
-        $user = API::get('admin/users/'. $sentryUser->username);
+        $user = API::get('admin/users/' . $sentryUser->username);
         $activeGroups = $user->getGroups();
 
         $sentryGroups = Sentry::getGroupProvider()->findAll();
         $groups = array();
 
         $aGroups = $groups = array();
-        foreach($activeGroups as $group) {
+        foreach ($activeGroups as $group) {
             $aGroups[] = $group->id;
         }
 
-        foreach($sentryGroups as $group) {
+        foreach ($sentryGroups as $group) {
             $groups[$group->id] = $group->name;
         }
 
@@ -126,7 +125,7 @@ class UserController extends BaseController {
             'aGroups' => $aGroups,
             'groups' => $groups,
             'user' => $user,
-            'title' => "Edit User: ".$user->username
+            'title' => "Edit User: " . $user->username
         ));
     }
 

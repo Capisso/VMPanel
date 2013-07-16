@@ -46,13 +46,11 @@ class RegionController extends BaseController {
         try {
 
             $region = API::post('admin/regions', Input::all());
-
         } catch (Cartalyst\Api\Http\ApiHttpException $e) {
 
             if ($e->isServerError()) {
 
                 App::abort($e->getStatusCode());
-
             } elseif ($e->isClientError()) {
 
                 return Redirect::action('Admin\RegionController@create')
@@ -103,7 +101,6 @@ class RegionController extends BaseController {
      * @return Response
      */
     public function update($id) {
-
     }
 
     /**
@@ -114,6 +111,5 @@ class RegionController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-
     }
 }

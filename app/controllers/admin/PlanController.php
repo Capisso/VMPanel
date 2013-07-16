@@ -47,13 +47,11 @@ class PlanController extends BaseController {
         try {
 
             $plan = API::post('admin/plans', Input::all());
-
         } catch (Cartalyst\Api\Http\ApiHttpException $e) {
 
             if ($e->isServerError()) {
 
                 App::abort($e->getStatusCode());
-
             } elseif ($e->isClientError()) {
 
                 return Redirect::action('Admin\PlanController@create')
@@ -79,7 +77,7 @@ class PlanController extends BaseController {
 
         return View::make('admin/plan/show', array(
             'plan' => $plan,
-            'title' => 'Manage Plan: '.$plan->name 
+            'title' => 'Manage Plan: ' . $plan->name
         ));
     }
 

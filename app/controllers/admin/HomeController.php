@@ -7,7 +7,7 @@ use API;
 
 class HomeController extends BaseController {
 
-    public function getIndex(){
+    public function getIndex() {
         $nodes = API::get('admin/nodes');
         $nodes = $nodes['active'];
 
@@ -16,5 +16,4 @@ class HomeController extends BaseController {
             'title' => 'Admin Homepage'
         ));
     }
-
 }

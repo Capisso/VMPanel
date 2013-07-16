@@ -37,7 +37,7 @@ class NodeController extends BaseController {
         $pending = $nodes['pending'];
 
         $regions = array();
-        foreach($allRegions as $region) {
+        foreach ($allRegions as $region) {
             $regions[$region->id] = $region->name;
         }
 
@@ -57,13 +57,11 @@ class NodeController extends BaseController {
         try {
 
             $node = API::post('admin/nodes', Input::all());
-
         } catch (Cartalyst\Api\Http\ApiHttpException $e) {
 
             if ($e->isServerError()) {
 
                 App::abort($e->getStatusCode());
-
             } elseif ($e->isClientError()) {
 
                 return Redirect::action('Admin\NodeController@create')
@@ -87,7 +85,7 @@ class NodeController extends BaseController {
 
         return View::make('admin/node/show', array(
             'node' => $node,
-            'title' => 'Manage Node: '.$node->hostname
+            'title' => 'Manage Node: ' . $node->hostname
         ));
     }
 

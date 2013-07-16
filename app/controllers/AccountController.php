@@ -1,25 +1,21 @@
 <?php
 
 
-class AccountController extends BaseController
-{
+class AccountController extends BaseController {
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->beforeFilter('guest', array('only' => array('getLogin', 'postLogin')));
     }
 
-    public function getLogin()
-    {
+    public function getLogin() {
         return View::make('account/login');
     }
 
-    public function postLogin()
-    {
+    public function postLogin() {
         $input = Input::all();
 
         $rules = array(
-            'username'    => 'required',
+            'username' => 'required',
             'password' => 'required'
         );
 
@@ -32,21 +28,20 @@ class AccountController extends BaseController
         try {
             // Set login credentials
             $credentials = array(
-                'username'    => $input['username'],
+                'username' => $input['username'],
                 'password' => $input['password'],
             );
 
             // Try to authenticate the user
             $user = Sentry::authenticate($credentials, Input::get('remember', false));
             Event::fire('user.login', array($user));
-            
+
             $redirect = Session::get('redirect');
-            if($redirect) {
+            if ($redirect) {
                 return Redirect::to($redirect);
             } else {
                 return Redirect::to('/');
             }
-
         } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
             dd($e);
             return Redirect::to('account/login')->withErrors(array('Login field is required.'));
@@ -70,13 +65,11 @@ class AccountController extends BaseController
         }
     }
 
-    public function getForgot()
-    {
+    public function getForgot() {
         return View::make('account/forgot');
     }
 
-    public function postForgot()
-    {
+    public function postForgot() {
         $input = Input::all();
 
         $rules = array(
@@ -103,25 +96,22 @@ class AccountController extends BaseController
         }
     }
 
-    public function getResetting()
-    {
+    public function getResetting() {
         return View::make('account/resetting');
     }
 
-    public function getReset($email, $code)
-    {
+    public function getReset($email, $code) {
         return View::make('account/reset', array('email' => $email, 'code' => $code));
     }
 
-    public function postReset()
-    {
+    public function postReset() {
         $input = Input::all();
 
         $rules = array(
-            'email'            => 'required|email',
-            'password'         => 'required|min:6',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
             'password_confirm' => 'required|same:password',
-            'code'             => 'required'
+            'code' => 'required'
         );
 
         $validator = Validator::make($input, $rules);
@@ -153,12 +143,10 @@ class AccountController extends BaseController
         }
     }
 
-    public function getLogout()
-    {
+    public function getLogout() {
         Event::fire('user.logout', array(Sentry::getUser()));
         Sentry::logout();
 
         return Redirect::to('');
     }
-
 }

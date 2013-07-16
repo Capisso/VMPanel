@@ -8,13 +8,12 @@ class HomeController extends BaseController {
         $userGroup = Sentry::getGroupProvider()->findByName('Users');
         $adminGroup = Sentry::getGroupProvider()->findByName('Admins');
 
-        if($user->inGroup($userGroup)) {
+        if ($user->inGroup($userGroup)) {
             return Redirect::to('user');
-        } elseif($user->inGroup($adminGroup)) {
+        } elseif ($user->inGroup($adminGroup)) {
             return Redirect::to('admin');
         } else {
             throw new Exception('User is not in a recognizable group. This is most likely bad.');
         }
     }
-
 }

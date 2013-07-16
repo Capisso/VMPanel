@@ -7,6 +7,13 @@ class IPAddress extends Eloquent {
 
     protected $fillable = array('address', 'type', 'active');
 
+    /**
+     * Get the type of input we're trying to parse
+     *
+     * @param string $address
+     *
+     * @return string
+     */
     public static function getInputType($address) {
 
         if(str_contains($address, '/')) {
@@ -19,7 +26,13 @@ class IPAddress extends Eloquent {
 
     }
 
-
+    /**
+     * Return type of IP Address (be it IPv4 or IPv6)
+     *
+     * @param string $address
+     *
+     * @return string
+     */
     public static function getType($address) {
         if(filter_var($address, FILTER_FLAG_IPV6)) {
             return 'ipv6';

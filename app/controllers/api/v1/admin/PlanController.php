@@ -17,7 +17,9 @@ class PlanController extends BaseController {
      * @return Response
      */
     public function index() {
-        if($permissions = $this->checkPermission('admin.plan.index')) return $permissions;
+        if ($permissions = $this->checkPermission('admin.plan.index')) {
+            return $permissions;
+        }
 
         $plans = Plan::all();
 
@@ -30,7 +32,9 @@ class PlanController extends BaseController {
      * @return Response
      */
     public function store() {
-        if($permissions = $this->checkPermission('admin.plan.store')) return $permissions;
+        if ($permissions = $this->checkPermission('admin.plan.store')) {
+            return $permissions;
+        }
 
         $input = Input::all();
 
@@ -59,7 +63,7 @@ class PlanController extends BaseController {
         );
 
         $validator = Validator::make(Input::all(), $rules);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return Response::api($validator);
         }
 
@@ -80,9 +84,11 @@ class PlanController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        if($permissions = $this->checkPermission('admin.plan.show')) return $permissions;
+        if ($permissions = $this->checkPermission('admin.plan.show')) {
+            return $permissions;
+        }
 
-        $plan = Plan::find($id); 
+        $plan = Plan::find($id);
 
         return Response::api($plan);
     }
@@ -95,8 +101,9 @@ class PlanController extends BaseController {
      * @return Response
      */
     public function update($id) {
-        if($permissions = $this->checkPermission('admin.plan.update')) return $permissions;
-
+        if ($permissions = $this->checkPermission('admin.plan.update')) {
+            return $permissions;
+        }
     }
 
     /**
@@ -107,7 +114,8 @@ class PlanController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        if($permissions = $this->checkPermission('admin.plan.destroy')) return $permissions;
-
+        if ($permissions = $this->checkPermission('admin.plan.destroy')) {
+            return $permissions;
+        }
     }
 }

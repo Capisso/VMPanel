@@ -1,6 +1,7 @@
 <?php
 
 namespace ApiVersionOne\Admin;
+
 use Input;
 use Response;
 use Sentry;
@@ -12,12 +13,12 @@ class BaseController extends \Controller {
     protected $user;
 
     public function __construct() {
-        if(Sentry::check()) {
+        if (Sentry::check()) {
             $this->user = Sentry::getUser();
         } else {
             $inputKey = Input::get('apikey');
 
-            if(empty($inputKey)) {
+            if (empty($inputKey)) {
                 return Response::api('Invalid authorization token.', 401);
             }
 
@@ -28,9 +29,8 @@ class BaseController extends \Controller {
 
     public function checkPermission($permission) {
 
-        if(!$this->user->hasPermission($permission)) {
+        if (!$this->user->hasPermission($permission)) {
             return Response::api('You don\'t have permission to access this.', 401);
         }
     }
-
 }

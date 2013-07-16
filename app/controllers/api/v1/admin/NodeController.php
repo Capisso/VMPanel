@@ -18,7 +18,9 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function index() {
-        if($permissions = $this->checkPermission('admin.node.index')) return $permissions;
+        if ($permissions = $this->checkPermission('admin.node.index')) {
+            return $permissions;
+        }
 
         $nodes = Node::all();
 
@@ -38,12 +40,14 @@ class NodeController extends BaseController {
     /**
      * Either accept/reject a node.
      * If the node is accepted, add it to Salt and the databse
-     * If the node is rejected, reject it from Salt 
+     * If the node is rejected, reject it from Salt
      *
      * @return Response
      */
     public function store() {
-        if($permissions = $this->checkPermission('admin.node.store')) return $permissions;
+        if ($permissions = $this->checkPermission('admin.node.store')) {
+            return $permissions;
+        }
 
         $rules = array(
             'hostname' => 'required|unique:nodes',
@@ -53,7 +57,7 @@ class NodeController extends BaseController {
 
 
         $validator = Validator::make(Input::all(), $rules);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return Response::api($validator);
         }
 
@@ -61,7 +65,7 @@ class NodeController extends BaseController {
         $hostname = Input::get('hostname');
         $region = Input::get('region');
 
-        if($action == 'Accept') {
+        if ($action == 'Accept') {
 
             $saltAccept = Salty::wheelModule('key')->accept($hostname);
             //checking
@@ -76,15 +80,12 @@ class NodeController extends BaseController {
             $node->save();
 
             return Response::api($node);
-
-        } elseif($action == 'Reject') {
+        } elseif ($action == 'Reject') {
 
             $saltAccept = Salty::wheelModule('key')->reject($hostname);
-
         } else {
             return Response::api('Invalid action', 401);
         }
-
     }
 
     /**
@@ -95,9 +96,11 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        if($permissions = $this->checkPermission('admin.node.show')) return $permissions;
+        if ($permissions = $this->checkPermission('admin.node.show')) {
+            return $permissions;
+        }
 
-        $node = Node::find($id); 
+        $node = Node::find($id);
 
         return Response::api($node);
     }
@@ -110,8 +113,9 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function update($id) {
-        if($permissions = $this->checkPermission('admin.node.update')) return $permissions;
-
+        if ($permissions = $this->checkPermission('admin.node.update')) {
+            return $permissions;
+        }
     }
 
     /**
@@ -122,7 +126,8 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        if($permissions = $this->checkPermission('admin.node.destroy')) return $permissions;
-
+        if ($permissions = $this->checkPermission('admin.node.destroy')) {
+            return $permissions;
+        }
     }
 }

@@ -15,5 +15,4 @@ class HomeController extends BaseController {
             'description' => 'We\'ll be adding more information here soon, for now view the individual modules on the left.',
         ));
     }
-
 }

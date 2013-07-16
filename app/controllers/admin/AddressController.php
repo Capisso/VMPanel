@@ -49,14 +49,12 @@ class AddressController extends BaseController {
         try {
 
             API::post('admin/addresses', Input::all());
-
         } catch (Cartalyst\Api\Http\ApiHttpException $e) {
 
             dd($e->getErrors());
             if ($e->isServerError()) {
 
                 App::abort($e->getStatusCode());
-
             } elseif ($e->isClientError()) {
 
                 return Redirect::action('Admin\AddressController@create')
@@ -88,7 +86,6 @@ class AddressController extends BaseController {
      * @param string $address
      */
     public function edit($address) {
-
     }
 
     /**
@@ -99,7 +96,6 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function update($id) {
-
     }
 
     /**
@@ -110,6 +106,5 @@ class AddressController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-
     }
 }

@@ -17,7 +17,9 @@ class UserController extends BaseController {
      * @return \Cartalyst\Api\Http\Response
      */
     public function index() {
-        if($permissions = $this->checkPermission('admin.user.index')) return $permissions;
+        if ($permissions = $this->checkPermission('admin.user.index')) {
+            return $permissions;
+        }
         Event::fire('admin.user.index');
 
         $users = Sentry::getUserProvider()->findAll();
@@ -31,14 +33,16 @@ class UserController extends BaseController {
      * @return Response
      */
     public function store() {
-        if($permissions = $this->checkPermission('admin.user.store')) return $permissions;
+        if ($permissions = $this->checkPermission('admin.user.store')) {
+            return $permissions;
+        }
 
         $input = Input::all();
 
         $rules = array(
-            'username'         => 'required|min:2|max:32|unique:users',
-            'email'            => 'required|email|unique:users',
-            'password'         => 'required|min:6',
+            'username' => 'required|min:2|max:32|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
         );
 
         $validator = Validator::make($input, $rules);
@@ -51,9 +55,9 @@ class UserController extends BaseController {
 
             $user = Sentry::register(
                 array(
-                    'username'   => mb_strtolower($input['username']),
-                    'email'      => $input['email'],
-                    'password'   => $input['password']
+                    'username' => mb_strtolower($input['username']),
+                    'email' => $input['email'],
+                    'password' => $input['password']
                 )
             );
             $userGroup = Sentry::getGroupProvider()->findById(1);
@@ -65,11 +69,9 @@ class UserController extends BaseController {
             Event::fire('admin.user.store', array($user));
 
             return Response::api($user);
-
         } catch (Sentry\Users\UserExistsException $e) {
             return Response::api('User with this login already exists.', 409);
         }
-
     }
 
 
@@ -81,11 +83,13 @@ class UserController extends BaseController {
      * @return \Cartalyst\Api\Http\Response
      */
     public function show($username) {
-        if($permissions = $this->checkPermission('admin.user.show')) return $permissions;
+        if ($permissions = $this->checkPermission('admin.user.show')) {
+            return $permissions;
+        }
         Event::fire('admin.user.show');
 
         $user = Sentry::getUserProvider()->findByLogin($username);
-        if(!$user) {
+        if (!$user) {
             return Response::api('User not found.', 404);
         }
 
@@ -99,7 +103,9 @@ class UserController extends BaseController {
      * @return \Cartalyst\Sentry\Users\Cartalyst\Sentry\Users\UserInterface
      */
     public function update($username) {
-        if($permissions = $this->checkPermission('admin.user.update')) return $permissions;
+        if ($permissions = $this->checkPermission('admin.user.update')) {
+            return $permissions;
+        }
 
         $oldUser = Sentry::getUserProvider()->findByLogin($username);
         $newUser = Sentry::getUserProvider()->findByLogin($username);

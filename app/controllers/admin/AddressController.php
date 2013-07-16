@@ -81,14 +81,13 @@ class AddressController extends BaseController {
         return View::make('admin/address/show', compact('region'));
     }
 
+
     /**
-     * Show the form for editing the specified resource.
+     * Show the edit form for the requested IP
      *
-     * @param  string $username
-     *
-     * @return Response
+     * @param string $address
      */
-    public function edit($id) {
+    public function edit($address) {
 
     }
 

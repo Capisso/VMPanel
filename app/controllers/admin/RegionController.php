@@ -59,6 +59,8 @@ class RegionController extends BaseController {
                     ->withErrors($e->getErrors())
                     ->with('message', $e->getMessage());
             }
+
+            return $e->getMessage();
         }
 
         return Redirect::action('Admin\RegionController@show', array($region->id));

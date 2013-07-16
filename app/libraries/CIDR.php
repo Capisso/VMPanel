@@ -70,7 +70,7 @@ class CIDR {
      * a-netmask-is-valid--as2-
      * @access public
      * @static
-     * return bool True if a valid netmask.
+     * @return bool True if a valid netmask.
      */
     public static function validNetMask($netmask) {
         $netmask = ip2long($netmask);
@@ -88,6 +88,7 @@ class CIDR {
      *
      * @param $netmask String a 1pv4 formatted ip address.
      *
+     * @throws Exception
      * @access public
      * @static
      * @return int CIDR number.
@@ -196,6 +197,7 @@ class CIDR {
     public static function rangeToCIDRList($startIPinput, $endIPinput = null) {
         $start = ip2long($startIPinput);
         $end = (empty($endIPinput)) ? $start : ip2long($endIPinput);
+        $listCIDRs = array();
         while ($end >= $start) {
             $maxsize = self::maxBlock(long2ip($start));
             $maxdiff = 32 - intval(log($end - $start + 1) / log(2));

@@ -28,8 +28,15 @@ class IPAddress extends Eloquent {
        }
     }
 
+    /**
+     * Determine if the IP address is valid.
+     *
+     * @param string $address
+     *
+     * @return bool
+     */
     public static function valid($address) {
-        return inet_pton($ip) !== false;
+        return inet_pton($address) !== false;
     }
 
 }

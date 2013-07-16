@@ -72,7 +72,6 @@ class NodeController extends BaseController {
             }
         }
 
-        return Redirect::action('Admin\NodeController@index');
         return Redirect::action('Admin\NodeController@show', array($node->id));
     }
 

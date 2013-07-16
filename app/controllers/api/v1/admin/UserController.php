@@ -102,10 +102,11 @@ class UserController extends BaseController {
         if($permissions = $this->checkPermission('admin.user.update')) return $permissions;
 
         $oldUser = Sentry::getUserProvider()->findByLogin($username);
+        $newUser = Sentry::getUserProvider()->findByLogin($username);
 
         Event::fire('admin.user.show', array($oldUser, $newUser));
 
-        return Response::api($user);
+        return Response::api($newUser);
     }
 
     /**

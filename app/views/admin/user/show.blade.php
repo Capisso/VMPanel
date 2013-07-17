@@ -7,12 +7,12 @@
 @section('content')
 
 <div class="btn-group">
-    {{Form::open(array('method' => 'delete', 'class' => 'pull-right', 'action' => array('Admin\UserController@destroy', $user->id)))}}
-    {{HTML::linkAction('Admin\UserController@edit', 'Edit', array($user->id), array('class' => 'btn
-    btn-default'))}}
-    <input type="submit" class="btn btn-danger" value="Delete"/>
-    {{Form::close()}}
+    {{ HTML::linkAction('Admin\UserController@index', 'Suspend', null, array('class' => 'btn btn-warning')) }}
+    {{HTML::linkAction('Admin\UserController@edit', 'Edit', array($user->id), array('class' => 'btn btn-info'))}}
+</div>
 
+<div class="btn-group">
+    {{HTML::linkAction('Admin\UserController@destroy', 'Delete', array($user->id), array('class' => 'btn btn-danger'))}}
 </div>
 
 <hr>

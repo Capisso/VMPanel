@@ -12,14 +12,6 @@ class SettingController extends BaseController {
 
     public function getIndex() {
 
-        Setting::set('site.themes', array(
-            'default_capisso' => 'Capisso Default'
-        ));
-        Setting::set('site.theme.user', 'default');
-        Setting::set('salt.credentials', array('username' => '', 'password' => ''));
-        Setting::set('salt.auth_type', 'pam');
-        Setting::set('salt.api_certificate_path', false);
-
         $auth = Setting::get('salt.credentials');
 
         $bootswatch = array();

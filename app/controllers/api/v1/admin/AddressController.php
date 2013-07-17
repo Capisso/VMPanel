@@ -23,9 +23,14 @@ class AddressController extends BaseController {
             return $permissions;
         }
 
-        $nodes = IPAddress::all();
+        var_dump(CIDR::cidrToRange('2605:f700:80:818::/64'));
+        
 
-        return Response::api($nodes);
+        $addresses = array();
+        $addresses['ipv4'] = IPAddress::where('type', 'ipv4')->get();
+        $addresses['ipv6'] = IPAddress::where('type', 'ipv6')->get();
+
+        return Response::api($addresses);
     }
 
     /**

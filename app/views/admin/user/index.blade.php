@@ -14,7 +14,6 @@
             <td>Email</td>
             <td>Created At</td>
             <td>Last Login</td>
-            <td>Actions</td>
         </tr>
     </thead>
     <tbody>
@@ -25,11 +24,6 @@
             <td>{{{ $user->email }}}</td>
             <td>{{{ $user->created_at }}}</td>
             <td>{{{ $user->updated_at }}}</td>
-            <td>
-                {{ Form::open(array('method' => 'DELETE', 'action' => array('Admin\UserController@destroy', $user->id))) }}
-                {{ Form::submit('Delete', array('class' => 'btn btn-danger btn-small')) }}
-                {{ Form::close() }}
-            </td>
         </tr>
         @endforeach
     </tbody>

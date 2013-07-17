@@ -1,0 +1,25 @@
+{
+
+    "site.name": "Capisso VMPanel",
+
+    // Themes
+    "site.theme.admin": "default_capisso",
+    "site.theme.user": "default",
+
+    // Theme specific settings
+    "theme.default.bootswatch": "flatly",
+
+    // Salt
+    "salt.host": "127.0.0.1",
+    "salt.port": 3306,
+    "salt.auth_type": "pam",
+    "salt.api_certificate_path": false,
+    "salt.credentials": {
+        "username":"capisso",
+        "password":"capisso"
+    },
+
+    // Security
+    "security.intrusion.threshold": 50
+
+}

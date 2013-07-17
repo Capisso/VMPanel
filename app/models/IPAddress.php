@@ -6,6 +6,7 @@ class IPAddress extends Eloquent {
     protected $table = "ip_addresses";
 
     protected $fillable = array('address', 'type', 'active');
+    protected $hidden = array('id');
 
     /**
      * Get the type of input we're trying to parse

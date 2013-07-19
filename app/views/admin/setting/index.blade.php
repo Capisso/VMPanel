@@ -112,7 +112,8 @@
             <div class="control-group">
                 <label for="saltPassword" class="control-label">Password</label>
                 <div class="controls">
-                    {{Form::password('salt[auth_password]', $auth['password'], array('id' => 'saltPassword'))}}
+                    {{ Form::password('salt[auth_password]', null, array('id' => 'saltPassword')) }}
+                    <p class="help-block">Password will change if you type a new one.</p>
                 </div>
             </div>
             <div class="control-group">

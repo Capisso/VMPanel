@@ -52,6 +52,8 @@ class SettingController extends BaseController {
 
             // Handle salt
             if ($key == 'salt') {
+
+
                 exit('this isn\'t ready');
                 $auth = Config::get('salt.credentials');
                 foreach ($value as $k => $v) {

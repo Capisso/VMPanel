@@ -1,4 +1,5 @@
 {
+    "name": "capisso/vmpanel",
     "require": {
         "laravel/framework": "4.0.*",
 

@@ -2,6 +2,9 @@
 
     "site.name": "Capisso VMPanel",
 
+    "site.themes": {
+        "default_capisso": "Capisso Default"
+    },
     "site.theme.admin": "default_capisso",
     "site.theme.user": "default",
 

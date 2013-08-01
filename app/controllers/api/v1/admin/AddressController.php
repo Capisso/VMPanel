@@ -34,13 +34,20 @@ class AddressController extends BaseController {
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @permission admin.address.store
+
      *
      * @return Response
      */
-    public function store() {
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @permission admin.address.store
+	 *
+	 * @return \Cartalyst\Api\Facades\Cartalyst\Api\Http\Response
+	 * @throws \Exception
+	 */
+	public function store() {
         if ($permissions = $this->checkPermission('admin.address.store')) {
             return $permissions;
         }

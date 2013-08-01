@@ -81,7 +81,8 @@ class NodeController extends BaseController {
      * @return Response
      */
     public function show($id) {
-        $node = API::get("admin/nodes/$id");
+		/** @noinspection PhpVoidFunctionResultUsedInspection */
+		$node = API::get("admin/nodes/$id");
 
         return View::make('admin/node/show', array(
             'node' => $node,

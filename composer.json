@@ -27,27 +27,27 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/Capisso/api.git"
+            "url": "http://dl.capisso.org/repos/api.git"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/Capisso/themes.git"
+            "url": "http://dl.capisso.org/repos/themes.git"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/Capisso/composite-config.git"
+            "url": "http://dl.capisso.org/repos/composite-config.git"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/Capisso/data-grid.git"
+            "url": "http://dl.capisso.org/repos/data-grid.git"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/Capisso/assetic-filters.git"
+            "url": "http://dl.capisso.org/repos/assetic-filters.git"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/Capisso/dependencies.git"
+            "url": "http://dl.capisso.org/repos/dependencies.git"
         }
     ],
     "autoload": {

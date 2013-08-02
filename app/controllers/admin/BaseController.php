@@ -2,9 +2,17 @@
 
 namespace Admin;
 
+use Sentry;
+
 class BaseController extends \Controller {
 
     protected $layout = 'layouts/admin';
+
+	public $user;
+
+	public function __construct() {
+		$this->user = Sentry::getUser();
+	}
 
     /**
      * Setup the layout used by the controller.

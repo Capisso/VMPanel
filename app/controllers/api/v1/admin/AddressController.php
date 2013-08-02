@@ -2,11 +2,11 @@
 
 namespace ApiVersionOne\Admin;
 
+use Capisso\Ip\IPv4\Address as IPv4Address;
 use Sentry;
 use Response;
 use Input;
 use Validator;
-use IPAddress;
 use CIDR;
 
 class AddressController extends BaseController {
@@ -64,7 +64,7 @@ class AddressController extends BaseController {
 
         $toAdd = array();
         foreach ($addresses as $address) {
-            $type = IPAddress::getInputType($address);
+			$address = new IPv4Address($address);
 
             switch ($type) {
                 case 'single':

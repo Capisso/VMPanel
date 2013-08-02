@@ -86,12 +86,18 @@
                     </li>
                 </ul>
                 <ul class="nav pull-right">
-                    <li class="dropdown">
+                    <li class="dropdown {{(Request::is('admin/account*')? 'active' : '')}}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Account <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">SSH Keys</a></li>
-                            <li><a href="#">API Access</a></li>
-                            <li><a href="#">Settings</a></li>
+							<li class="{{(Request::is('admin/account/ssh-keys')? 'active' : '')}}">
+								{{HTML::linkAction('Admin\AccountController@getSshKeys', 'SSH Keys')}}
+							</li>
+							<li class="{{(Request::is('admin/account/api-access')? 'active' : '')}}">
+								{{HTML::linkAction('Admin\AccountController@getApiAccess', 'API Access')}}
+							</li>
+							<li class="{{(Request::is('admin/account/settings')? 'active' : '')}}">
+								{{HTML::linkAction('Admin\AccountController@getSettings', 'Settings')}}
+							</li>
                             <li class="divider"></li>
                             <li>{{HTML::linkAction('AccountController@getLogout', 'Logout')}}</li>
                         </ul>

@@ -124,6 +124,7 @@ return array(
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 
         'Capisso\Salty\SaltyServiceProvider',
+		'Capisso\Ip\IpServiceProvider',
 
 
     ),

@@ -15,4 +15,8 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User {
 
     }
 
+	public function keys() {
+		return $this->hasMany('SSHKey');
+	}
+
 }

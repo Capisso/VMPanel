@@ -73,6 +73,8 @@ Route::group(array('before' => 'auth'), function () {
         Route::resource('plans', 'Admin\PlanController');
         Route::controller('settings', 'Admin\SettingController');
 
+		Route::controller('account', 'Admin\AccountController');
+
         Route::group(array('prefix' => 'security'), function() {
             Route::get('/', 'Admin\Security\HomeController@getIndex');
             Route::resource('intrusion', 'Admin\Security\IntrusionController');
